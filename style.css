@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+
+@property --k {
+	syntax: '<number>';
+	initial-value: 0;
+	inherits: false;
+}
+
+html, body { 
+    height: 100%; width: 100%;
+    margin: 0; padding: 0;
+}
+
+html { 
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 60px 1fr 100px;
+}
+
+header {
+    
+    width: 100%;
+    background-color: sandybrown;
+}
+
+nav {
+    height: 100%;
+    width: 100%;
+    background-color: #1f2a34;
+}
+
+a {
+    text-decoration: none;
+    color: indent;
+}
+
+body { 
+    background: #fff
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+
+.nav-container {
+    height: 100%; width: 100%;
+    display: grid;
+    grid-template-columns: 10vw 1fr 2fr 10vw;
+}
+
+.nav-title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.nav-empty {
+    content: none;
+}
+
+.nav-title {
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 20px;
+
+    transition: .1s color ease-in-out;
+}
+
+.nav-title:hover {
+    cursor:default;
+    color: #d3d3d3;
+}
+
+.nav-container-link {
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.nav-container-link li {
+    height: 100%;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.nav-container-link li {
+    transition: .3s background-position ease-in-out;
+}
+
+.nav-container-link li a {
+    color: transparent;
+    background: linear-gradient(to right, #ffffff 50%, rgb(139, 208, 255) 51%, #698be7 100%);
+    background-clip: text;
+    background-size: 200%;
+    background-position: 0%;
+    -webkit-background-clip: text;
+    
+    animation: nav-item-gradient-shift-off .3s;
+}
+
+.nav-container-link li:hover a {
+    background-position: 100%;
+    animation: nav-item-gradient-shift-on .3s;
+}
+
+@keyframes nav-item-gradient-shift-on {
+    0% { background-position: 0%; }
+    100% { background-position: 100%; }
+}
+
+@keyframes nav-item-gradient-shift-off {
+    0% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+.nav-item-line {
+    display: block;
+    width: 100%; height: 10px;
+    background-color: rgba(255,0,0,0.5);
+    content: none;
+}
+
+.main-section {
+    background-color: #222;
+    padding: 140px 0;
+    width: 100%;
+}
+
+.main-section h1 { 
+	--k: 0;
+    margin: 20px;
+	place-self: center;
+	background: 
+		linear-gradient(90deg, 
+				hsl(calc(var(--k)*1turn), 95%, 65%), 
+				hsl(calc(var(--k)*1turn + 90deg), 95%, 65%)) text;
+	color: transparent;
+	font-weight: 500;
+    font-size: 56px;
+	filter: url(#f);
+    text-align: center;
+
+	animation: k 10s linear infinite
+}
+
+@keyframes k { to { --k: 1 } }
+
+.main-section-button-container {
+    text-align: center;
+}
+
+.main-section-button-container a {    
+    margin: 10px auto;
+}
+
+.vertical-align {
+    height: 100%; width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor{
+    position: relative;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 30px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+
+    color: white;
+    font-family: 'Anonymous Pro';
+}
+/* Animation */
+.typewriter-animation {
+  animation: 
+    typewriter 5s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}

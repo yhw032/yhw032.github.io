@@ -651,7 +651,10 @@ function App() {
                     </div>
                     <div className="text-left">
                       <span className="text-[10px] font-black text-brand block uppercase tracking-widest leading-none mb-1">NETWORK_HUB</span>
-                      <span className="text-lg font-black uppercase">GitHub</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-black uppercase">GitHub</span>
+                        <ExternalLink size={14} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                      </div>
                     </div>
                   </a>
                 </div>
@@ -669,7 +672,10 @@ function App() {
                     </div>
                     <div className="text-left">
                       <span className="text-[10px] font-black text-brand block uppercase tracking-widest leading-none mb-1">PROFESSIONAL_LINK</span>
-                      <span className="text-lg font-black uppercase">LinkedIn</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-black uppercase">LinkedIn</span>
+                        <ExternalLink size={14} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                      </div>
                     </div>
                   </a>
                 </div>

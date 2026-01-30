@@ -123,6 +123,39 @@ const PROJECTS = [
     desc: "An AI-powered travel routing service for K-culture tourists, featuring interactive mapping and real-time data integration.",
     fullDesc: "As the lead Front-end Developer for K-Route, I managed the entire lifecycle from Figma design to deployment. I established a cohesive design system and implemented it using React Native (Expo) and Styled-Components, ensuring both UI/UX consistency and high component reusability across the application.\n\nMy primary technical focus was the integration of complex mapping and data services. I embedded the Kakao Maps API via WebView to render color-coded transit routes for subway, bus, and walking paths, providing users with precise, multi-modal navigation. Furthermore, I integrated the OpenWeather API to deliver real-time, location-based weather updates within the travel itineraries.\n\nThe final product successfully delivers a seamless mobile experience, blending AI-driven routing with intuitive visual data. By optimizing the front-end architecture and navigation logic, I provided international travelers with a reliable and highly functional tool for exploring Korea.",
     links: [{ label: "GITHUB", url: "https://github.com/HSU-MEY/frontend" }, { label: "ONE STORE", url: "https://m.onestore.co.kr/v2/ko-kr/app/0001002337" }]
+  },
+  {
+    id: "GAM-001",
+    title: "MineSweeper",
+    organization: "Personal",
+    role: "Developer",
+    period: "2022",
+    tech: "JAVASCRIPT, HTML, CSS",
+    desc: "Simple minesweeper game.",
+    fullDesc: "",
+    links: [{ label: "GITHUB", url: "https://github.com/yhw032/MineSweeper" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/MineSweeper/minesweeper.html" }]
+  },
+  {
+    id: "GAM-002",
+    title: "Fruits Maker",
+    organization: "Personal",
+    role: "Developer",
+    period: "2025.12",
+    tech: "JAVASCRIPT, HTML, CSS",
+    desc: "Fruit merging game",
+    fullDesc: "",
+    links: [{ label: "GITHUB", url: "https://github.com/yhw032/fruits-maker" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/fruits-maker/index.html" }]
+  },
+  {
+    id: "GAM-003",
+    title: "Apple Game",
+    organization: "Personal",
+    role: "Developer",
+    period: "2025.12 - 2026.01",
+    tech: "JAVASCRIPT, HTML, CSS",
+    desc: "A fast-paced puzzle game where you drag to select apples that sum to exactly 10",
+    fullDesc: "",
+    links: [{ label: "GITHUB", url: "https://github.com/yhw032/apple-game" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/apple-game" }]
   }
 ];
 

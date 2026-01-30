@@ -134,12 +134,77 @@ function App() {
               <div className="inline-block border border-brand/40 px-3 py-1 text-[10px] text-brand w-fit animate-pulse tracking-widest font-black uppercase">
                 SYSTEM_ACCESS: GRANTED
               </div>
-              <h1
-                className="text-6xl md:text-9xl font-black text-brand tracking-tighter glitch uppercase leading-none"
-                data-text="DEVELOPER"
-              >
-                DEVELOPER
-              </h1>
+              {/* Cinematic Hero Title */}
+              <div className="relative min-h-[1.2em] flex items-baseline">
+                <motion.h1
+                  layout
+                  className="text-6xl md:text-8xl lg:text-9xl font-black text-brand tracking-tighter uppercase leading-none flex items-baseline"
+                >
+                  <motion.span layout className="shrink-0">H</motion.span>
+
+                  <AnimatePresence mode="wait">
+                    {!isAlt ? (
+                      <motion.span
+                        key="hello"
+                        initial={{ opacity: 0, width: 0, x: -10 }}
+                        animate={{ opacity: 1, width: 'auto', x: 0 }}
+                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                      >
+                        ELLO&nbsp;
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="hee"
+                        initial={{ opacity: 0, width: 0, x: -10 }}
+                        animate={{ opacity: 1, width: 'auto', x: 0 }}
+                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                      >
+                        EE&nbsp;
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+
+                  <motion.span layout className="shrink-0">W</motion.span>
+
+                  <AnimatePresence mode="wait">
+                    {!isAlt ? (
+                      <motion.span
+                        key="world"
+                        initial={{ opacity: 0, width: 0, x: -10 }}
+                        animate={{ opacity: 1, width: 'auto', x: 0 }}
+                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                      >
+                        ORLD
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="wook"
+                        initial={{ opacity: 0, width: 0, x: -10 }}
+                        animate={{ opacity: 1, width: 'auto', x: 0 }}
+                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+                        className="overflow-hidden whitespace-nowrap flex items-baseline origin-left"
+                      >
+                        <span className="px-[0.05em]">OOK</span>
+                        <motion.span
+                          initial={{ opacity: 0, scale: 0.5, x: -20 }}
+                          animate={{ opacity: 0.6, scale: 1, x: 0 }}
+                          transition={{ delay: 0.3 }}
+                          className="text-[0.2em] md:text-[0.18em] font-bold ml-4 tracking-normal normal-case whitespace-nowrap opacity-60 hidden md:inline-block border-l-2 border-brand/20 pl-4 py-1"
+                        >
+                          s GITHUB.IO
+                        </motion.span>
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </motion.h1>
+              </div>
               <p className="text-xl md:text-2xl text-text-muted font-bold max-w-2xl border-l-4 border-brand pl-6">
                 Specializing in Technical UI Engineering and Scalable Architecture for Industrial-grade Applications.
               </p>

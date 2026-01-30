@@ -24,7 +24,7 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="min-h-screen bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">
+        <section id="projects" className="min-h-screen bg-section-alt flex items-center justify-center">
           <h2 className="text-4xl font-bold">My Projects</h2>
         </section>
 
@@ -32,7 +32,7 @@ function App() {
           <h2 className="text-4xl font-bold">About Me</h2>
         </section>
 
-        <section id="contact" className="min-h-screen bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">
+        <section id="contact" className="min-h-screen bg-section-alt flex items-center justify-center">
           <h2 className="text-4xl font-bold">Get In Touch</h2>
         </section>
       </main>

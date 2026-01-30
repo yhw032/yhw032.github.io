@@ -5,17 +5,17 @@
   --color-brand: #3b82f6;
   --color-brand-contrast: #ffffff;
   --color-brand-bg: #ffffff;
+  --color-section-alt: #f8fafc;
 
   --font-sans: "Pretendard", ui-sans-serif, system-ui;
 }
-
-@custom-variant dark (&:where(.dark, [data-theme="dark"], @media (prefers-color-scheme: dark)));
 
 @layer base {
   .dark {
     --color-brand: #f97316;
     --color-brand-contrast: #1a1a1a;
     --color-brand-bg: #1a1a1a;
+    --color-section-alt: #262626;
   }
 }
 

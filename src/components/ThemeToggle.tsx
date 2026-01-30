@@ -35,8 +35,8 @@ export default function ThemeToggle(): ReactElement {
       }}
     >
       {/* Visual Accents */}
-      <div className="absolute top-0 right-0 w-2 h-[1px] bg-brand/40" />
-      <div className="absolute bottom-0 left-0 w-2 h-[1px] bg-brand/40" />
+      <div className="absolute top-0 right-0 w-2 h-px bg-brand/40" />
+      <div className="absolute bottom-0 left-0 w-2 h-px bg-brand/40" />
 
       <div className="relative z-10 flex items-center justify-center w-6 h-6">
         <AnimatePresence mode="wait">

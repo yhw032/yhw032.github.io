@@ -44,7 +44,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled || isOpen
         ? 'bg-panel backdrop-blur-xl border-brand/20 shadow-sm py-2'
         : 'bg-transparent border-transparent py-6'
         }`}
@@ -107,17 +107,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scaleY: 0 }}
-            animate={{ opacity: 1, scaleY: 1 }}
-            exit={{ opacity: 0, scaleY: 0 }}
-            style={{ originY: 0 }}
-            className="md:hidden fixed inset-0 top-[60px] bg-panel backdrop-blur-2xl z-40 border-l border-brand/20"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden fixed inset-x-0 top-full bg-panel backdrop-blur-2xl z-40 border-t border-brand/10 overflow-hidden"
           >
-            <div className="flex flex-col p-10 gap-8">
+            <div className="flex flex-col p-10 gap-4">
               {NAV_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
                 return (

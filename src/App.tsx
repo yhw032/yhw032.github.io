@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
-import { Terminal, Globe, Mail, X, Briefcase, Code } from 'lucide-react'
+import { X, Briefcase, Code } from 'lucide-react'
 import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
@@ -87,6 +87,7 @@ function App() {
       document.body.style.overflow = 'unset';
     }
   }, [selectedExp]);
+
   return (
     <div className="min-h-screen font-mono selection:bg-brand/30 relative overflow-x-hidden">
       <div className="scanline" />
@@ -97,7 +98,7 @@ function App() {
       </div>
 
       {/* Background Decorative Element */}
-      <div className="fixed top-1/4 left-0 text-[10px] text-brand/10 -rotate-90 origin-left pointer-events-none select-none">
+      <div className="fixed top-1/4 left-0 text-[10px] text-brand/10 -rotate-90 origin-left pointer-events-none select-none uppercase">
         COORD_X: 37.5665 // COORD_Y: 126.9780 // ST_STATUS: NOMINAL
       </div>
 
@@ -136,7 +137,7 @@ function App() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex items-center gap-4 mb-16">
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Education</h2>
-              <div className="h-px flex-grow bg-border" />
+              <div className="h-px grow bg-border" />
               <span className="text-xs text-brand opacity-60 font-black">TYPE: DATA_HISTORY</span>
             </div>
 
@@ -210,10 +211,9 @@ function App() {
           </div>
         </section>
 
-        {/* Experience Modal */}
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {selectedExp && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <div className="fixed inset-0 z-100 flex items-center justify-center p-6">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -225,7 +225,7 @@ function App() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-full max-w-2xl tech-panel !bg-panel !p-0 overflow-hidden shadow-2xl"
+                className="relative w-full max-w-2xl tech-panel bg-panel! p-0! overflow-hidden shadow-2xl"
               >
                 {/* Header Accents */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-brand" />
@@ -291,7 +291,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center gap-4 mb-16">
               <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Projects</h2>
-              <div className="h-px flex-grow bg-border" />
+              <div className="h-px grow bg-border" />
               <span className="text-xs text-brand opacity-60 font-black">MODE: DEPLOYED</span>
             </div>
 
@@ -300,14 +300,14 @@ function App() {
                 <a
                   key={idx}
                   href="#"
-                  className="tech-panel group !p-10 border-border hover:border-brand/40 transition-all hover:bg-brand/[0.02] shadow-sm"
+                  className="tech-panel group p-10! border-border hover:border-brand/40 transition-all hover:bg-brand/2 shadow-sm"
                 >
                   <div className="flex justify-between mb-8 opacity-40 group-hover:opacity-100 transition-opacity">
                     <span className="text-[10px] font-black">{project.id}</span>
                     <span className="text-[10px] font-black">ST_0{idx}</span>
                   </div>
                   <h3 className="text-2xl font-black mb-6 group-hover:text-brand transition-colors tracking-tighter uppercase">{project.title}</h3>
-                  <p className="text-text-muted text-xs mb-8 flex-grow leading-relaxed font-bold">
+                  <p className="text-text-muted text-xs mb-8 grow leading-relaxed font-bold">
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-2">

@@ -510,10 +510,10 @@ function App() {
                 initial={{ opacity: 0, scale: 0.95, x: 20 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.95, x: 20 }}
-                className="relative w-full max-w-5xl tech-panel bg-panel! p-0! overflow-hidden shadow-2xl flex flex-col md:flex-row h-[85vh] md:h-[90vh]"
+                className="relative w-full max-w-5xl tech-panel bg-panel! p-0! shadow-2xl flex flex-col md:flex-row h-fit max-h-[90vh] md:h-[90vh] overflow-y-auto md:overflow-hidden custom-scrollbar"
               >
                 {/* Left Side: Metadata (Distinct from Experience Modal) */}
-                <div className="md:w-2/5 p-8 bg-brand/5 border-b md:border-b-0 md:border-r border-brand/10 space-y-8 overflow-y-auto custom-scrollbar">
+                <div className="md:w-2/5 p-8 bg-brand/5 border-b md:border-b-0 md:border-r border-brand/10 space-y-8 md:overflow-y-auto md:custom-scrollbar">
                   <div className="flex justify-between items-start md:block md:space-y-4">
                     <div>
                       <span className="text-xs font-black text-brand tracking-[0.2em] mb-2 block">{selectedProject.id}</span>
@@ -572,7 +572,7 @@ function App() {
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="md:w-3/5 p-8 flex flex-col h-full bg-panel">
+                <div className="md:w-3/5 p-8 flex flex-col md:h-full bg-panel">
                   <div className="hidden md:flex justify-between items-center mb-8 gap-4">
                     <div className="flex-1 h-12 hazard-stripes border border-brand/10" />
                     <button
@@ -583,7 +583,7 @@ function App() {
                     </button>
                   </div>
 
-                  <div className="space-y-8 overflow-y-auto scrollbar-thin scrollbar-thumb-brand/20 custom-scrollbar pr-4 flex-1 min-h-0">
+                  <div className="space-y-8 md:overflow-y-auto scrollbar-thin scrollbar-thumb-brand/20 md:custom-scrollbar md:pr-4 md:flex-1 md:min-h-0">
                     <div>
                       <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">PROJECT_MANIFEST</h4>
                       <p className="text-text-main font-bold leading-relaxed whitespace-pre-line text-lg">

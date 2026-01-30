@@ -573,10 +573,11 @@ function App() {
 
                 {/* Right Side: Content */}
                 <div className="md:w-3/5 p-8 flex flex-col h-full bg-panel">
-                  <div className="hidden md:flex justify-end mb-8">
+                  <div className="hidden md:flex justify-between items-center mb-8 gap-4">
+                    <div className="flex-1 h-12 hazard-stripes border border-brand/10" />
                     <button
                       onClick={() => setSelectedProject(null)}
-                      className="p-2 border border-brand/20 text-brand hover:bg-brand/10 transition-colors"
+                      className="p-2 border border-brand/20 text-brand hover:bg-brand/10 transition-colors shrink-0"
                     >
                       <X size={24} />
                     </button>

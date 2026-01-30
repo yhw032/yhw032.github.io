@@ -214,3 +214,13 @@ nav {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   @apply bg-brand/40;
 }
+
+/* --- Technical Decoration Utilities --- */
+.hazard-stripes {
+  background: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      var(--color-brand) 10px,
+      var(--color-brand) 12px);
+  opacity: 0.15;
+}

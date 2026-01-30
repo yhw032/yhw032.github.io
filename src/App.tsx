@@ -84,41 +84,41 @@ const EXPERIENCE = [
     type: "Full-time",
     tech: ["AWS", "Terraform", "Docker", "GitHub Actions", "Python"],
     desc: "Infrastructure Management and DevOps Support.",
-    fullDesc: "Orchestrating cloud infrastructure using Terraform and AWS (EC2, S3, RDS, Lambda). Implementing CI/CD pipelines via GitHub Actions to automate testing and deployment processes. Managing containerized environments with Docker and ensuring high availability and scalability of critical financial services."
+    fullDesc: "..."
   }
 ];
 
 const PROJECTS = [
   {
     id: "PRJ-001",
-    title: "GRID_OS_INTERFACE",
+    title: "Better Youtube UI",
     organization: "Personal",
-    role: "Lead Developer",
-    period: "2024.01 - 2024.03",
-    tech: "REACT.V4, TS, VITE",
-    desc: "Low-latency dashboard for real-time mesh network monitoring.",
-    fullDesc: "Architecture design and implementation of a high-performance grid monitoring system. Focused on minimizing main-thread blocking during high-frequency data updates. Implemented custom visualization kernels using Canvas and OffscreenCanvas for smooth 60FPS rendering of thousands of active nodes.",
-    links: [{ label: "GITHUB", url: "#" }, { label: "DEMO", url: "#" }]
+    role: "Developer",
+    period: "2024.05 - ",
+    tech: "JS, CSS, BROWSER EXTENSION, CONTENT SCRIPT",
+    desc: "Browser extension that solves a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll.",
+    fullDesc: "Independently developed and deployed a browser extension to solve a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll. Achieved over 4,000 active users, demonstrating strong user-centric problem-solving and product viability. Managed and provided continuous updates based on user feedback and platform changes.",
+    links: [{ label: "GITHUB", url: "https://github.com/yhw032/BetterYoutubeUI" }, { label: "WHALE STORE", url: "https://store.whale.naver.com/detail/dognllhkkhmkgpmhpfggjjcbcnhhnloi" }]
   },
   {
     id: "PRJ-002",
-    title: "VIRTUAL_DOM_SYNC",
-    team: "X-SYNC-LAB",
-    organization: "Open Source",
-    role: "Core Contributor",
-    period: "2023.10 - 2023.12",
-    tech: "NEXT.JS, WEB_SOCKETS",
-    desc: "Distributed state synchronization engine for multi-agent environments.",
-    fullDesc: "Developed a conflict-free replicated data type (CRDT) implementation for real-time state sync across multiple client instances. Reduced synchronization latency by 40% through intelligent delta-patching and binary message protocols. Built a debugging visualizer to trace state propagation across the mesh network.",
+    title: "DAMSEOL",
+    team: "PRISM",
+    organization: "Hansung University",
+    role: "Team Leader, AI/Frontend Developer",
+    period: "2024.12 - 2025.05",
+    tech: "REACT, FLASK, AWS, PYTORCH",
+    desc: "Language learning platform for the hearing impaired.",
+    fullDesc: "This project aims to build a language learning platform for the hearing impaired, featuring a system that analyzes recordings of provided words or sentences made by learners and provides feedback.\n\nWhen learners record, the collected audio data is converted to text using the KoSpeech2 speech deep learning model based on DeepSpeech2.\n\nSubsequently, the Python-based speech analysis library Librosa3 is used to analyze acoustic features such as pitch and prosody.\n\nBased on the data obtained through this process, the platform provides visual feedback and performs text-based evaluations of the learner's pronunciation using OpenAI's GPT model.\n\nThis enables learners to receive feedback through various visual cues and correct their pronunciation accordingly.",
     links: [{ label: "GITHUB", url: "#" }]
   },
   {
     id: "PRJ-003",
-    title: "QUANTUM_STYLING",
-    organization: "Experiment",
-    role: "Researcher",
+    title: "K-ROUTE",
+    organization: "Korea Tourism Organization",
+    role: "Frontend Developer",
     period: "2023.08 - 2023.09",
-    tech: "CSS_ENGINE, FRAMER",
+    tech: "REACT NATIVE, TYPESCRIPT",
     desc: "Houdini-based paint worklets for generating procedural industrial patterns.",
     fullDesc: "Exploration into the CSS Houdini Paint API to create high-performance procedural textures for technical UIs. Designed algorithms for generating randomized circuit-board patterns and hazard-stripe effects without image assets. Successfully integrated with Framer Motion for dynamic, state-reactive visual feedback.",
     links: []
@@ -252,8 +252,17 @@ function App() {
                   </AnimatePresence>
                 </motion.h1>
               </div>
-              <p className="text-xl md:text-2xl text-text-muted font-bold max-w-2xl border-l-4 border-brand pl-6">
-                Specializing in Technical UI Engineering and Scalable Architecture for Industrial-grade Applications.
+              <div className="flex gap-3 font-mono text-[10px] tracking-[0.2em] text-brand/60 uppercase">
+                <span>// CORE_VALUE: HUMAN_INTERFACE</span>
+                <span className="animate-pulse">● ONLINE</span>
+              </div>
+
+              <p className="text-xl md:text-2xl text-slate-400 font-bold max-w-2xl border-l-2 border-brand pl-6 py-1 leading-relaxed">
+                <span className="">User first, decorate later.</span>
+                <br />
+                <span className="text-sm md:text-base opacity-60 font-medium">
+                  I architect digital experiences where functionality dictates the form.
+                </span>
               </p>
             </div>
 
@@ -622,7 +631,7 @@ function App() {
               {/* GitHub Link */}
               <div className="flex h-full">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/yhw032"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="tech-panel group flex items-center gap-4 transition-all hover:bg-brand/10 w-full"
@@ -640,7 +649,7 @@ function App() {
               {/* LinkedIn Link */}
               <div className="flex h-full">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/heewook-yoon-1b504b317/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="tech-panel group flex items-center gap-4 transition-all hover:bg-brand/10 w-full"
@@ -686,7 +695,7 @@ function App() {
                       >
                         <div className="flex flex-col gap-1">
                           <a
-                            href="mailto:contact@example.com"
+                            href="mailto:hw010603@gmail.com"
                             className="flex items-center gap-3 p-3 hover:bg-brand/10 text-text transition-colors text-xs font-black uppercase tracking-widest group"
                           >
                             <ExternalLink size={14} className="text-brand opacity-60 group-hover:opacity-100" />
@@ -694,7 +703,7 @@ function App() {
                           </a>
                           <button
                             onClick={() => {
-                              navigator.clipboard.writeText("contact@example.com");
+                              navigator.clipboard.writeText("hw010603@gmail.com");
                               setCopied(true);
                               setTimeout(() => setCopied(false), 2000);
                               setTimeout(() => setShowMailMenu(false), 1000);
@@ -732,7 +741,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center font-black">
           <div className="text-left text-[10px] text-text-muted uppercase tracking-[0.3em]">
             <p>Built with React & Tailwind CSS v4 [Engine: Stable]</p>
-            <p>© 2026. Data verification complete.</p>
+            <p>&copy; 2026. Data verification complete.</p>
           </div>
           <div className="text-right flex justify-end gap-12 text-[10px] text-brand uppercase tracking-widest">
             <span>SECURE_SHELL</span>

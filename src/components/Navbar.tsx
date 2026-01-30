@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Briefcase, User, Mail } from 'lucide-react';
+import { Menu, X, Home, Briefcase, GraduationCap, FolderCode, Mail } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -10,8 +10,9 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#home', icon: <Home size={18} /> },
-  { label: 'Projects', href: '#projects', icon: <Briefcase size={18} /> },
-  { label: 'About', href: '#about', icon: <User size={18} /> },
+  { label: 'Education', href: '#education', icon: <GraduationCap size={18} /> },
+  { label: 'Experience', href: '#experience', icon: <Briefcase size={18} /> },
+  { label: 'Projects', href: '#projects', icon: <FolderCode size={18} /> },
   { label: 'Contact', href: '#contact', icon: <Mail size={18} /> },
 ];
 
@@ -44,8 +45,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-brand-bg/80 backdrop-blur-md shadow-lg py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-brand-bg/80 backdrop-blur-md shadow-lg py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -94,8 +95,8 @@ export default function Navbar() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-3 text-lg font-medium p-2 rounded-lg transition-colors ${activeSection === item.href.substring(1)
-                      ? 'bg-brand/10 text-brand'
-                      : 'hover:bg-slate-100 dark:hover:bg-slate-800'
+                    ? 'bg-brand/10 text-brand'
+                    : 'hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                 >
                   {item.icon}

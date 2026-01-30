@@ -9,7 +9,7 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 2500; // 2.5 seconds total
+    const duration = 2000; // 2.5 seconds total
     const interval = 30; // 30ms updates
     const steps = duration / interval;
     const increment = 100 / steps;
@@ -30,11 +30,14 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-black overflow-hidden pointer-events-none"
+      className="fixed inset-0 z-9999 flex items-center justify-center overflow-hidden pointer-events-none"
+      exit={{ opacity: 1 }}
     >
       {/* Background Grid */}
-      <div
+      <motion.div
         className="absolute inset-0 opacity-20"
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
         style={{
           backgroundImage: `
             linear-gradient(to right, #3b82f633 1px, transparent 1px),
@@ -59,8 +62,8 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
       {/* UI Elements (Stay in center during split) */}
       <motion.div
         className="relative z-20 flex flex-col items-center justify-center"
-        exit={{ opacity: 0, scale: 0.9 }}
-        transition={{ duration: 0.3 }}
+        exit={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+        transition={{ duration: 0.4 }}
       >
         {/* Corner Brackets Container */}
         <div className="relative w-64 h-64 flex items-center justify-center">

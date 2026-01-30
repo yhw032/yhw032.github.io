@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
-import { X, Briefcase, Code } from 'lucide-react'
+import { X, Briefcase, Code, ExternalLink } from 'lucide-react'
 import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
@@ -53,26 +53,43 @@ const PROJECTS = [
   {
     id: "PRJ-001",
     title: "GRID_OS_INTERFACE",
+    organization: "Personal",
+    role: "Lead Developer",
+    period: "2024.01 - 2024.03",
     tech: "REACT.V4, TS, VITE",
-    desc: "Low-latency dashboard for real-time mesh network monitoring."
+    desc: "Low-latency dashboard for real-time mesh network monitoring.",
+    fullDesc: "Architecture design and implementation of a high-performance grid monitoring system. Focused on minimizing main-thread blocking during high-frequency data updates. Implemented custom visualization kernels using Canvas and OffscreenCanvas for smooth 60FPS rendering of thousands of active nodes.",
+    links: [{ label: "GITHUB", url: "#" }, { label: "DEMO", url: "#" }]
   },
   {
     id: "PRJ-002",
     title: "VIRTUAL_DOM_SYNC",
+    team: "X-SYNC-LAB",
+    organization: "Open Source",
+    role: "Core Contributor",
+    period: "2023.10 - 2023.12",
     tech: "NEXT.JS, WEB_SOCKETS",
-    desc: "Distributed state synchronization engine for multi-agent environments."
+    desc: "Distributed state synchronization engine for multi-agent environments.",
+    fullDesc: "Developed a conflict-free replicated data type (CRDT) implementation for real-time state sync across multiple client instances. Reduced synchronization latency by 40% through intelligent delta-patching and binary message protocols. Built a debugging visualizer to trace state propagation across the mesh network.",
+    links: [{ label: "GITHUB", url: "#" }]
   },
   {
     id: "PRJ-003",
     title: "QUANTUM_STYLING",
+    organization: "Experiment",
+    role: "Researcher",
+    period: "2023.08 - 2023.09",
     tech: "CSS_ENGINE, FRAMER",
-    desc: "Houdini-based paint worklets for generating procedural industrial patterns."
+    desc: "Houdini-based paint worklets for generating procedural industrial patterns.",
+    fullDesc: "Exploration into the CSS Houdini Paint API to create high-performance procedural textures for technical UIs. Designed algorithms for generating randomized circuit-board patterns and hazard-stripe effects without image assets. Successfully integrated with Framer Motion for dynamic, state-reactive visual feedback.",
+    links: []
   }
 ];
 
 function App() {
   const [isAlt, setIsAlt] = useState(false);
   const [selectedExp, setSelectedExp] = useState<typeof EXPERIENCE[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => setIsAlt(prev => !prev), 4000);
@@ -81,12 +98,12 @@ function App() {
 
   // Lock scroll when modal is open
   useEffect(() => {
-    if (selectedExp) {
+    if (selectedExp || selectedProject) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [selectedExp]);
+  }, [selectedExp, selectedProject]);
 
   return (
     <div className="min-h-screen font-mono selection:bg-brand/30 relative overflow-x-hidden">
@@ -297,31 +314,157 @@ function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
               {PROJECTS.map((project, idx) => (
-                <a
+                <div
                   key={idx}
-                  href="#"
-                  className="tech-panel group p-10! border-border shadow-sm"
+                  onClick={() => setSelectedProject(project)}
+                  className="tech-panel group p-10! border-border cursor-pointer shadow-sm"
                 >
                   <div className="flex justify-between mb-8 opacity-40 group-hover:opacity-100 transition-opacity">
                     <span className="text-[10px] font-black">{project.id}</span>
-                    <span className="text-[10px] font-black">ST_0{idx}</span>
+                    <span className="text-[10px] bg-brand text-brand-contrast px-1 font-black">ST_0{idx}</span>
                   </div>
-                  <h3 className="text-2xl font-black mb-6 group-hover:text-brand transition-colors tracking-tighter uppercase">{project.title}</h3>
+                  <div className="mb-2">
+                    <span className="text-[10px] text-brand font-black uppercase tracking-widest">{project.organization}</span>
+                  </div>
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-brand transition-colors tracking-tighter uppercase">{project.title}</h3>
                   <p className="text-text-muted text-xs mb-8 grow leading-relaxed font-bold">
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.split(', ').map((t, i) => (
+                    {project.tech.split(', ').slice(0, 3).map((t, i) => (
                       <span key={i} className="text-[9px] font-black tracking-widest text-brand border border-brand/20 px-2 py-0.5 uppercase">
                         {t}
                       </span>
                     ))}
+                    {project.tech.split(', ').length > 3 && (
+                      <span className="text-[9px] font-black text-text-muted opacity-60">+</span>
+                    )}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Project Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <div className="fixed inset-0 z-100 flex items-center justify-center p-6">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedProject(null)}
+                className="absolute inset-0 bg-brand-bg/80 backdrop-blur-md"
+              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, x: 20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.95, x: 20 }}
+                className="relative w-full max-w-5xl tech-panel bg-panel! p-0! overflow-hidden shadow-2xl flex flex-col md:flex-row h-fit max-h-[90vh]"
+              >
+                {/* Left Side: Metadata (Distinct from Experience Modal) */}
+                <div className="md:w-2/5 p-8 bg-brand/5 border-b md:border-b-0 md:border-r border-brand/10 space-y-8">
+                  <div className="flex justify-between items-start md:block md:space-y-4">
+                    <div>
+                      <span className="text-xs font-black text-brand tracking-[0.2em] mb-2 block">{selectedProject.id}</span>
+                      <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-brand">
+                        {selectedProject.title}
+                      </h2>
+                    </div>
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="md:hidden p-2 border border-brand/20 text-brand"
+                    >
+                      <X size={20} />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
+                    <div>
+                      <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">ORGANIZATION</span>
+                      <p className="font-black text-lg">{selectedProject.organization}</p>
+                    </div>
+                    {selectedProject.team && (
+                      <div>
+                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">TEAM_UNIT</span>
+                        <p className="font-black text-lg">{selectedProject.team}</p>
+                      </div>
+                    )}
+                    <div>
+                      <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">ASSIGNED_ROLE</span>
+                      <p className="font-black text-lg">{selectedProject.role}</p>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">SERVICE_PERIOD</span>
+                      <p className="font-black text-lg">{selectedProject.period}</p>
+                    </div>
+                  </div>
+
+                  {selectedProject.links.length > 0 && (
+                    <div>
+                      <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-4 block">HANDSHAKE_LINKS</span>
+                      <div className="flex flex-col gap-2">
+                        {selectedProject.links.map((link, i) => (
+                          <a
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-3 border border-brand/20 hover:bg-brand/10 transition-colors font-black text-xs group"
+                          >
+                            {link.label}
+                            <ExternalLink size={14} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Side: Content */}
+                <div className="md:w-3/5 p-8 flex flex-col h-full bg-panel">
+                  <div className="hidden md:flex justify-end mb-8">
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="p-2 border border-brand/20 text-brand hover:bg-brand/10 transition-colors"
+                    >
+                      <X size={24} />
+                    </button>
+                  </div>
+
+                  <div className="space-y-8 overflow-y-auto custom-scrollbar pr-4">
+                    <div>
+                      <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">PROJECT_MANIFEST</h4>
+                      <p className="text-text-main font-bold leading-relaxed whitespace-pre-line text-lg">
+                        {selectedProject.fullDesc}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <Code size={14} /> SYSTEM_DEPENDENCIES
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tech.split(', ').map((t, i) => (
+                          <span key={i} className="text-[10px] font-black bg-brand/5 border border-brand/20 px-3 py-1 text-brand uppercase tracking-widest">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-8 border-t border-brand/10">
+                    <span className="text-[10px] font-black opacity-30 tracking-[0.3em] uppercase">
+                      MANIFEST_VERIFIED // ST_CODE: {selectedProject.id.split('-')[1]}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
 
         {/* Contact Section */}
         <section id="contact" className="py-40 relative">

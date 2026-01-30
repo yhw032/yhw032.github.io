@@ -114,10 +114,17 @@ function App() {
         <ThemeToggle />
       </div>
 
-      {/* Background Decorative Element */}
-      <div className="fixed top-1/4 left-0 text-[10px] text-brand/10 -rotate-90 origin-left pointer-events-none select-none uppercase">
-        COORD_X: 37.5665 // COORD_Y: 126.9780 // ST_STATUS: NOMINAL
+      {/* Background Decorative Elements */}
+      <div className="fixed top-3/4 left-4 z-20 text-[10px] text-brand/25 -rotate-90 origin-top-left pointer-events-none select-none uppercase tracking-[0.3em] font-black">
+        COORD_X: 37.3784 // COORD_Y: 127.1143 // SYS_STATUS: NOMINAL
       </div>
+      <div className="fixed top-1/2 right-4 z-20 rotate-90 origin-top-right pointer-events-none select-none text-[10px] text-brand/25 uppercase tracking-[0.3em] font-black">
+        NODE_ID: YHW-032 // LINK: ENCRYPTED // 0x7E7
+      </div>
+
+      {/* Edge Accents */}
+      <div className="fixed top-0 bottom-0 left-0 w-px bg-brand/5 z-20 pointer-events-none" />
+      <div className="fixed top-0 bottom-0 right-0 w-px bg-brand/5 z-20 pointer-events-none" />
 
       <main className="relative z-10">
         {/* Home Section */}

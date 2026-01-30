@@ -3,13 +3,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #00ff41;
-  /* Cyber green */
-  --color-brand-contrast: #000000;
-  --color-brand-bg: #050505;
-  --color-section-alt: #0a0a0a;
-  --color-panel: rgba(16, 16, 16, 0.8);
-  --color-border: rgba(0, 255, 65, 0.2);
+  --color-brand: #3b82f6;
+  /* Blue for Light Mode */
+  --color-brand-contrast: #ffffff;
+  --color-brand-bg: #f8fafc;
+  --color-section-alt: #ffffff;
+  --color-panel: rgba(255, 255, 255, 0.82);
+  --color-border: rgba(100, 116, 139, 0.12);
+  /* Gray for Grid */
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
 
   --font-mono: "JetBrains Mono", monospace;
   --font-sans: "Pretendard", ui-sans-serif, system-ui;
@@ -17,12 +20,16 @@
 
 @layer base {
   .dark {
-    --color-brand: #3b82f6;
-    /* Back to blue or stick to green? User said Industrial. Green/Amber is iconic. Let's use a subtle shift. */
+    --color-brand: #f97316;
+    /* Orange for Dark Mode */
+    --color-brand-contrast: #000000;
     --color-brand-bg: #020202;
     --color-section-alt: #050505;
     --color-panel: rgba(10, 10, 10, 0.9);
-    --color-border: rgba(59, 130, 246, 0.3);
+    --color-border: rgba(255, 255, 255, 0.05);
+    /* Subtle Gray for Dark Grid */
+    --color-text-main: #cbd5e1;
+    --color-text-muted: #94a3b8;
   }
 }
 
@@ -31,7 +38,7 @@ html {
 }
 
 body {
-  @apply bg-brand-bg text-slate-300 transition-colors duration-500 font-mono;
+  @apply bg-brand-bg text-text-main transition-colors duration-500 font-mono;
   background-image:
     linear-gradient(var(--color-border) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
@@ -45,11 +52,11 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: rgba(0, 255, 65, 0.1);
-  opacity: 0.5;
+  background: var(--color-brand);
+  opacity: 0.15;
   z-index: 100;
   pointer-events: none;
-  animation: scanline 8s linear infinite;
+  animation: scanline 10s linear infinite;
 }
 
 @keyframes scanline {
@@ -64,7 +71,7 @@ body {
 
 /* --- Technical Panel --- */
 .tech-panel {
-  @apply relative p-6 bg-panel backdrop-blur-md border border-brand/20;
+  @apply relative p-6 bg-panel backdrop-blur-md border border-brand/10 shadow-sm;
   clip-path: polygon(0 10px, 10px 0,
       calc(100% - 10px) 0, 100% 10px,
       100% calc(100% - 10px), calc(100% - 10px) 100%,
@@ -75,9 +82,10 @@ body {
 .tech-panel::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border: 1px solid var(--color-brand);
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -129,19 +137,19 @@ body {
   }
 
   20% {
-    transform: translate(-3px, 3px);
+    transform: translate(-2px, 2px);
   }
 
   40% {
-    transform: translate(-3px, -3px);
+    transform: translate(-2px, -2px);
   }
 
   60% {
-    transform: translate(3px, 3px);
+    transform: translate(2px, 2px);
   }
 
   80% {
-    transform: translate(3px, -3px);
+    transform: translate(2px, -2px);
   }
 
   100% {
@@ -155,14 +163,10 @@ nav {
 }
 
 .nav-link {
-  @apply relative px-2 py-1 overflow-hidden;
+  @apply relative px-3 py-1.5 transition-colors duration-200;
 }
 
-.nav-link::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-full h-px bg-brand scale-x-0 transition-transform origin-right;
-}
-
-.nav-link:hover::after {
-  @apply scale-x-100 origin-left;
+/* Style for active section - Text Highlighting */
+.nav-link-active {
+  @apply text-brand-contrast bg-brand/90;
 }

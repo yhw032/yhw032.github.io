@@ -323,10 +323,31 @@ function App() {
                     <span className="text-[10px] font-black">{project.id}</span>
                     <span className="text-[10px] bg-brand text-brand-contrast px-1 font-black">ST_0{idx}</span>
                   </div>
-                  <div className="mb-2">
-                    <span className="text-[10px] text-brand font-black uppercase tracking-widest">{project.organization}</span>
+
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-brand transition-colors tracking-tighter uppercase leading-none">{project.title}</h3>
+
+                  <div className="space-y-1 mb-6 border-l-2 border-brand/20 pl-4 py-1">
+                    <div className="flex items-center gap-2 text-[10px] font-bold">
+                      <span className="text-brand uppercase tracking-tighter">ORG:</span>
+                      <span className="text-text-main">{project.organization}</span>
+                      {project.team && (
+                        <>
+                          <span className="opacity-20">//</span>
+                          <span className="text-brand uppercase tracking-tighter">UNIT:</span>
+                          <span className="text-text-main">{project.team}</span>
+                        </>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2 text-[10px] font-bold">
+                      <span className="text-brand uppercase tracking-tighter">ROLE:</span>
+                      <span className="text-text-main">{project.role}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[10px] font-bold">
+                      <span className="text-brand uppercase tracking-tighter">TIME:</span>
+                      <span className="text-text-main">{project.period}</span>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-black mb-4 group-hover:text-brand transition-colors tracking-tighter uppercase">{project.title}</h3>
+
                   <p className="text-text-muted text-xs mb-8 grow leading-relaxed font-bold">
                     {project.desc}
                   </p>

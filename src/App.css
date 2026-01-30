@@ -71,11 +71,16 @@ body {
 
 /* --- Technical Panel --- */
 .tech-panel {
-  @apply relative p-6 bg-panel backdrop-blur-md border border-brand/10 shadow-sm;
+  @apply relative p-6 bg-panel backdrop-blur-md border border-brand/10 shadow-sm transition-all duration-300;
   clip-path: polygon(0 10px, 10px 0,
       calc(100% - 10px) 0, 100% 10px,
       100% calc(100% - 10px), calc(100% - 10px) 100%,
       10px 100%, 0 calc(100% - 10px));
+}
+
+.tech-panel:hover {
+  @apply border-brand/40 bg-brand/4 shadow-lg;
+  box-shadow: 0 0 20px -5px var(--color-brand);
 }
 
 .tech-panel::before,
@@ -85,8 +90,16 @@ body {
   width: 15px;
   height: 15px;
   border: 1px solid var(--color-brand);
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.tech-panel:hover::before,
+.tech-panel:hover::after {
+  opacity: 1;
+  width: 25px;
+  height: 25px;
 }
 
 .tech-panel::before {
@@ -106,6 +119,7 @@ body {
 /* --- Glitch Effect --- */
 .glitch {
   position: relative;
+  display: inline-block;
 }
 
 .glitch::before,
@@ -116,6 +130,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
   opacity: 0.8;
 }
 

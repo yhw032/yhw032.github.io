@@ -143,7 +143,7 @@ function App() {
 
             <div className="grid gap-1 grid-cols-1 md:grid-cols-2">
               {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="tech-panel transition-all hover:bg-brand/5">
+                <div key={idx} className="tech-panel">
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <span className="text-[10px] text-brand block mb-1 font-black">ENTRY_{idx}</span>
@@ -173,7 +173,7 @@ function App() {
                 <div
                   key={idx}
                   onClick={() => setSelectedExp(exp)}
-                  className="tech-panel group cursor-pointer overflow-hidden transition-all hover:bg-brand/3"
+                  className="tech-panel group cursor-pointer overflow-hidden"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-3">
@@ -300,7 +300,7 @@ function App() {
                 <a
                   key={idx}
                   href="#"
-                  className="tech-panel group p-10! border-border hover:border-brand/40 transition-all hover:bg-brand/2 shadow-sm"
+                  className="tech-panel group p-10! border-border shadow-sm"
                 >
                   <div className="flex justify-between mb-8 opacity-40 group-hover:opacity-100 transition-opacity">
                     <span className="text-[10px] font-black">{project.id}</span>

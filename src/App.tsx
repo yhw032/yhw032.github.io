@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
-import { X, Briefcase, Code, ExternalLink } from 'lucide-react'
+import { X, Briefcase, Code, ExternalLink, Github, Linkedin, Mail, Copy, Check } from 'lucide-react'
 import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
@@ -129,6 +129,8 @@ function App() {
   const [isAlt, setIsAlt] = useState(false);
   const [selectedExp, setSelectedExp] = useState<typeof EXPERIENCE[0] | null>(null);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
+  const [showMailMenu, setShowMailMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => setIsAlt(prev => !prev), 4000);
@@ -240,6 +242,7 @@ function App() {
                         <motion.span
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 0.6, x: 0 }}
+                          transition={{ delay: 0.3 }}
                           className="text-[0.2em] md:text-[0.18em] font-bold ml-2 tracking-normal normal-case whitespace-nowrap opacity-60 hidden md:inline-block border-l border-brand/20 pl-2 py-1 leading-none self-center"
                         >
                           <DecipherText text="s GITHUB.IO" delay={0.4} />
@@ -615,12 +618,112 @@ function App() {
                 Initiate handshake for secure coordination or architectural discussion.
               </p>
             </div>
-            <a
-              href="mailto:contact@example.com"
-              className="inline-flex items-center justify-center px-16 py-6 border-2 border-brand text-brand font-black text-xl transition-all hover:bg-brand hover:text-brand-contrast active:scale-95 shadow-lg shadow-brand/10 hover:shadow-brand/30"
-            >
-              ESTABLISH_LINK
-            </a>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto items-stretch">
+              {/* GitHub Link */}
+              <div className="flex h-full">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tech-panel group flex items-center gap-4 transition-all hover:bg-brand/10 w-full"
+                >
+                  <div className="p-3 bg-brand/5 border border-brand/20 text-brand">
+                    <Github size={24} />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[10px] font-black text-brand block uppercase tracking-widest leading-none mb-1">NETWORK_HUB</span>
+                    <span className="text-lg font-black uppercase">GitHub</span>
+                  </div>
+                </a>
+              </div>
+
+              {/* LinkedIn Link */}
+              <div className="flex h-full">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tech-panel group flex items-center gap-4 transition-all hover:bg-brand/10 w-full"
+                >
+                  <div className="p-3 bg-brand/5 border border-brand/20 text-brand">
+                    <Linkedin size={24} />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[10px] font-black text-brand block uppercase tracking-widest leading-none mb-1">PROFESSIONAL_LINK</span>
+                    <span className="text-lg font-black uppercase">LinkedIn</span>
+                  </div>
+                </a>
+              </div>
+
+              {/* Mail Link with Custom Menu */}
+              <div className="relative flex h-full">
+                <button
+                  onClick={() => setShowMailMenu(!showMailMenu)}
+                  className="tech-panel group flex items-center gap-4 transition-all hover:bg-brand/10 w-full text-left"
+                >
+                  <div className="p-3 bg-brand/5 border border-brand/20 text-brand">
+                    <Mail size={24} />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[10px] font-black text-brand block uppercase tracking-widest leading-none mb-1">DIRECT_CHANNEL</span>
+                    <span className="text-lg font-black uppercase">E-Mail</span>
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {showMailMenu && (
+                    <>
+                      {/* Backdrop to close menu */}
+                      <div
+                        className="fixed inset-0 z-40 bg-transparent"
+                        onClick={() => setShowMailMenu(false)}
+                      />
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                        className="absolute bottom-full left-0 right-0 mb-4 z-50 bg-panel backdrop-blur-2xl border border-brand/40 shadow-2xl p-2"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <a
+                            href="mailto:contact@example.com"
+                            className="flex items-center gap-3 p-3 hover:bg-brand/10 text-text transition-colors text-xs font-black uppercase tracking-widest group"
+                          >
+                            <ExternalLink size={14} className="text-brand opacity-60 group-hover:opacity-100" />
+                            Launch Mail Client
+                          </a>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText("contact@example.com");
+                              setCopied(true);
+                              setTimeout(() => setCopied(false), 2000);
+                              setTimeout(() => setShowMailMenu(false), 1000);
+                            }}
+                            className="flex items-center gap-3 p-3 hover:bg-brand/10 text-text transition-colors text-xs font-black uppercase tracking-widest group text-left w-full"
+                          >
+                            {copied ? (
+                              <Check size={14} className="text-green-500" />
+                            ) : (
+                              <Copy size={14} className="text-brand opacity-60 group-hover:opacity-100" />
+                            )}
+                            {copied ? "Address Copied!" : "Copy to Clipboard"}
+                          </button>
+                        </div>
+                        {/* Technical Accent Decorative Line */}
+                        <div className="mt-2 h-0.5 bg-brand/10 w-full relative overflow-hidden">
+                          <motion.div
+                            initial={{ x: "-100%" }}
+                            animate={{ x: "100%" }}
+                            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                            className="absolute inset-0 bg-brand/40 w-1/3"
+                          />
+                        </div>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
         </section>
       </main>

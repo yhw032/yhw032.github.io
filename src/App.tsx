@@ -2,95 +2,131 @@ import Navbar from './components/Navbar'
 import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
-// --- Data Constants for Easy Extensibility ---
+// --- Technical Data Overlays ---
+const SYSTEM_LOGS = [
+  "INIT_SEQUENCE_SUCCESSFUL",
+  "CORE_KERNEL_LOADED",
+  "UI_INTERFACE_READY",
+  "VIRTUAL_ENV_STABLE"
+];
 
 const EDUCATION = [
   {
-    school: "Hanguk University",
+    school: "DUICA",
     degree: "Bachelor of Computer Science",
-    period: "2018.03 - 2022.02",
-    details: "GPA: 4.0/4.5. Focused on Software Engineering and Algorithms."
+    period: "2020.03 - 2022.02",
+    details: "GPA: 4.41/4.5. Specialized in Core Data Systems."
   },
   {
-    school: "Global Tech Academy",
-    degree: "Advanced Web Development Course",
-    period: "2022.03 - 2022.09",
-    details: "Intensive training in modern frontend frameworks and cloud architecture."
+    school: "Hansung University",
+    degree: "Division of Computer Science, Web Engineering",
+    period: "2022.03 - 2026.08",
+    details: "GPA: 4.02/4.5. Focus on Scalable Web Architecture."
   }
 ];
 
 const EXPERIENCE = [
   {
-    company: "Future Tech Inc.",
-    role: "Frontend Engineer",
-    period: "2023.01 - Present",
-    desc: "Led the development of a high-performance analytics dashboard. Optimized React rendering and improved lighthouse scores by 40%."
+    company: "NEURAL_LINK_TECH",
+    role: "Lead Interface Architect",
+    period: "2023.01 - 0x7E7",
+    desc: "Optimized neural-to-web data pipelines. Reduced latency across decentralized nodes."
   },
   {
-    company: "Creative Coders Lab",
-    role: "Junior Developer",
+    company: "CORE_SYSTEMS_LAB",
+    role: "System Integrator",
     period: "2022.09 - 2023.01",
-    desc: "Developed and maintained several client-side applications using Vue.js and Firebase. Collaborated with UI/UX designers to implement responsive designs."
+    desc: "Developed secure kernel-level interfaces for industrial monitoring modules."
   }
 ];
 
 const PROJECTS = [
   {
-    title: "Eco-Tracker App",
-    tech: "React, Node.js, MongoDB",
-    link: "#",
-    desc: "A mobile-first web app to track and reduce personal carbon footprint."
+    id: "PRJ-001",
+    title: "GRID_OS_INTERFACE",
+    tech: "REACT.V4, TS, VITE",
+    desc: "Low-latency dashboard for real-time mesh network monitoring."
   },
   {
-    title: "AI Image Generator",
-    tech: "Next.js, Tailwind, OpenAI API",
-    link: "#",
-    desc: "A creative tool that generates unique artwork based on user text prompts."
+    id: "PRJ-002",
+    title: "VIRTUAL_DOM_SYNC",
+    tech: "NEXT.JS, WEB_SOCKETS",
+    desc: "Distributed state synchronization engine for multi-agent environments."
   },
   {
-    title: "Crypto Dashboard",
-    tech: "TypeScript, Vite, Chart.js",
-    link: "#",
-    desc: "Real-time cryptocurrency tracking platform with advanced data visualization."
+    id: "PRJ-003",
+    title: "QUANTUM_STYLING",
+    tech: "CSS_ENGINE, FRAMER",
+    desc: "Houdini-based paint worklets for generating procedural industrial patterns."
   }
 ];
 
 function App() {
   return (
-    <div className="min-h-screen font-sans selection:bg-brand/30">
+    <div className="min-h-screen font-mono selection:bg-brand/30 relative overflow-x-hidden">
+      <div className="scanline" />
       <Navbar />
 
-      {/* Fixed ThemeToggle in bottom-right */}
       <div className="fixed bottom-6 right-6 z-50">
         <ThemeToggle />
       </div>
 
-      <main>
+      {/* Background Decorative Element */}
+      <div className="fixed top-1/4 left-0 text-[10px] text-brand/10 -rotate-90 origin-left pointer-events-none select-none">
+        COORD_X: 37.5665 // COORD_Y: 126.9780 // ST_STATUS: NOMINAL
+      </div>
+
+      <main className="relative z-10">
         {/* Home Section */}
-        <section id="home" className="min-h-[90vh] flex items-center justify-center pt-20">
-          <div className="text-center space-y-6 px-6 max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-black text-brand tracking-tight">
-              Hello World
-            </h1>
-            <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-              Innovative Developer building digital experiences that matter.
-            </p>
+        <section id="home" className="min-h-screen flex flex-col items-center justify-center p-6 pt-20">
+          <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div className="md:col-span-12 lg:col-span-8 flex flex-col justify-center space-y-8">
+              <div className="inline-block border border-brand/40 px-3 py-1 text-[10px] text-brand w-fit animate-pulse tracking-widest">
+                SYSTEM_ACCESS: GRANTED
+              </div>
+              <h1
+                className="text-6xl md:text-9xl font-black text-brand tracking-tighter glitch uppercase leading-none"
+                data-text="DEVELOPER"
+              >
+                DEVELOPER
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-400 font-bold max-w-2xl border-l-4 border-brand pl-6">
+                Specializing in Technical UI Engineering and Scalable Architecture for Industrial-grade Applications.
+              </p>
+            </div>
+
+            <div className="md:col-span-12 lg:col-span-4 flex flex-col justify-end space-y-4 text-[10px] font-bold text-slate-600">
+              {SYSTEM_LOGS.map((log, i) => (
+                <div key={i} className="flex gap-4 items-center">
+                  <span className="text-brand opacity-50">[{i}]</span>
+                  <span>{log}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Education & Certifications Section */}
-        <section id="education" className="py-32 bg-section-alt">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-black mb-16 text-center md:text-left tracking-tight">Education</h2>
-            <div className="grid gap-10">
+        {/* Education Section */}
+        <section id="education" className="py-40 bg-section-alt">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex items-center gap-4 mb-16">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Education</h2>
+              <div className="h-px flex-grow bg-brand/20" />
+              <span className="text-xs text-brand opacity-40 font-bold">TYPE: DATA_HISTORY</span>
+            </div>
+
+            <div className="grid gap-1 grid-cols-1 md:grid-cols-2">
               {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="bg-brand-bg p-8 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 transition-all hover:shadow-xl hover:border-brand/40 group">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-brand group-hover:translate-x-1 transition-transform">{edu.school}</h3>
-                    <span className="text-sm font-bold px-4 py-1 bg-brand/10 text-brand rounded-full mt-2 md:mt-0 w-fit">{edu.period}</span>
+                <div key={idx} className="tech-panel">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <span className="text-[10px] text-brand block mb-1">ENTRY_{idx}</span>
+                      <h3 className="text-2xl font-black text-brand leading-none">{edu.school}</h3>
+                    </div>
+                    <span className="text-[10px] bg-brand text-black px-2 py-0.5 font-black">{edu.period}</span>
                   </div>
-                  <p className="text-xl font-bold mb-3">{edu.degree}</p>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{edu.details}</p>
+                  <p className="text-lg font-bold mb-4 border-b border-brand/10 pb-4">{edu.degree}</p>
+                  <p className="text-slate-400 leading-relaxed text-sm">{edu.details}</p>
                 </div>
               ))}
             </div>
@@ -98,20 +134,31 @@ function App() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-32">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-black mb-16 text-center md:text-left tracking-tight">Experience</h2>
-            <div className="relative border-l-4 border-brand/20 ml-2 md:ml-4 space-y-16">
+        <section id="experience" className="py-40">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex items-center gap-4 mb-16">
+              <span className="text-xs text-brand opacity-40 font-bold">LOG_LEVEL: SENIOR</span>
+              <div className="h-px flex-grow bg-brand/20" />
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Experience</h2>
+            </div>
+
+            <div className="space-y-1">
               {EXPERIENCE.map((exp, idx) => (
-                <div key={idx} className="relative pl-10 md:pl-12">
-                  <div className="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-brand shadow-[0_0_0_6px_rgba(59,130,246,0.1)] ring-4 ring-brand-bg transition-transform group-hover:scale-125" />
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                    <h3 className="text-2xl font-bold tracking-tight">{exp.role}</h3>
-                    <span className="text-sm font-black text-brand tracking-widest uppercase">{exp.period}</span>
-                  </div>
-                  <p className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-4">{exp.company}</p>
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 max-w-3xl">
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{exp.desc}</p>
+                <div key={idx} className="tech-panel group overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div className="lg:col-span-3">
+                      <span className="text-[10px] text-brand block mb-1">PERIOD_STAMP</span>
+                      <span className="text-xl font-black">{exp.period}</span>
+                    </div>
+                    <div className="lg:col-span-4">
+                      <span className="text-[10px] text-brand block mb-1">ORGANIZATION</span>
+                      <h3 className="text-2xl font-black leading-none uppercase">{exp.company}</h3>
+                    </div>
+                    <div className="lg:col-span-5">
+                      <span className="text-[10px] text-brand block mb-1">STATUS_ROLE</span>
+                      <p className="text-lg font-bold text-slate-300 mb-2">{exp.role}</p>
+                      <p className="text-slate-500 text-xs leading-relaxed">{exp.desc}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -120,23 +167,32 @@ function App() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-32 bg-section-alt">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-black mb-16 text-center md:text-left tracking-tight">Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <section id="projects" className="py-40 bg-section-alt">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-center gap-4 mb-16">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Projects</h2>
+              <div className="h-px flex-grow bg-brand/20" />
+              <span className="text-xs text-brand opacity-40 font-bold">MODE: DEPLOYED</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
               {PROJECTS.map((project, idx) => (
                 <a
                   key={idx}
-                  href={project.link}
-                  className="group flex flex-col bg-brand-bg p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-brand/50 transition-all hover:shadow-2xl hover:-translate-y-2"
+                  href="#"
+                  className="tech-panel group !p-10 border-brand/10 hover:border-brand/50 transition-all hover:bg-brand/5"
                 >
-                  <h3 className="text-2xl font-black mb-4 group-hover:text-brand transition-colors">{project.title}</h3>
-                  <p className="text-slate-500 dark:text-slate-400 mb-8 flex-grow leading-relaxed">
+                  <div className="flex justify-between mb-8 opacity-40 group-hover:opacity-100 transition-opacity">
+                    <span className="text-[10px] font-black">{project.id}</span>
+                    <span className="text-[10px] font-black">ST_0{idx}</span>
+                  </div>
+                  <h3 className="text-2xl font-black mb-6 group-hover:text-brand transition-colors tracking-tighter uppercase">{project.title}</h3>
+                  <p className="text-slate-500 text-xs mb-8 flex-grow leading-relaxed">
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.split(', ').map((t, i) => (
-                      <span key={i} className="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-black tracking-wider text-slate-600 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700/50 uppercase">
+                      <span key={i} className="text-[9px] font-black tracking-widest text-brand border border-brand/20 px-2 py-0.5">
                         {t}
                       </span>
                     ))}
@@ -148,30 +204,38 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-32">
-          <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+        <section id="contact" className="py-40 relative">
+          <div className="absolute inset-0 opacity-5 pointer-events-none overflow-hidden flex items-center justify-center text-[20vw] font-black text-brand select-none">
+            CONNECT
+          </div>
+          <div className="max-w-4xl mx-auto px-6 text-center space-y-12 relative z-10">
             <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl font-black tracking-tight">Let's Connect</h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase glitch" data-text="TRANSMIT">Transmit</h2>
+              <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed font-bold uppercase tracking-widest">
+                Initiate handshake for secure coordination or architectural discussion.
               </p>
             </div>
             <a
               href="mailto:contact@example.com"
-              className="inline-flex items-center justify-center px-16 py-5 bg-brand text-brand-contrast rounded-full font-black text-xl transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_-15px_rgba(59,130,246,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(59,130,246,0.4)]"
+              className="inline-flex items-center justify-center px-16 py-6 border-2 border-brand text-brand font-black text-xl transition-all hover:bg-brand hover:text-black active:scale-95 shadow-[0_0_30px_rgba(0,255,65,0.2)]"
             >
-              Start a Conversation
+              ESTABLISH_LINK
             </a>
           </div>
         </section>
       </main>
 
-      <footer className="py-20 text-center text-slate-500 border-t border-slate-200 dark:border-slate-800 bg-section-alt">
-        <div className="max-w-xl mx-auto px-6 space-y-4 font-bold">
-          <p className="text-sm tracking-widest uppercase opacity-60">Crafted with precision using React & Tailwind v4</p>
-          <p className="text-brand tracking-tighter text-xl">PORTFOLIO</p>
-          <div className="h-px w-12 bg-slate-200 dark:bg-slate-700 mx-auto" />
-          <p className="text-xs opacity-50">© 2026. All rights reserved.</p>
+      <footer className="py-20 border-t border-brand/20 bg-section-alt">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center font-bold">
+          <div className="text-left text-[10px] text-slate-600 uppercase tracking-[0.3em]">
+            <p>Built with React & Tailwind CSS v4 [Engine: Stable]</p>
+            <p>© 2026. Data verification complete.</p>
+          </div>
+          <div className="text-right flex justify-end gap-12 text-[10px] text-brand">
+            <span>SECURE_SHELL</span>
+            <span>SYS_CORE</span>
+            <span>UI_V4.1</span>
+          </div>
         </div>
       </footer>
     </div>

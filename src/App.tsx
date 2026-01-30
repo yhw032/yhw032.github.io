@@ -27,16 +27,16 @@ const EDUCATION = [
 
 const EXPERIENCE = [
   {
-    company: "NEURAL_LINK_TECH",
-    role: "Lead Interface Architect",
-    period: "2023.01 - 0x7E7",
-    desc: "Optimized neural-to-web data pipelines. Reduced latency across decentralized nodes."
+    company: "GNC SOLUTION",
+    role: "Backend Developer",
+    period: "2025.04 - 2025.06",
+    desc: "Developed Gacci Project API and Admin Panel with Django Rest Framework."
   },
   {
-    company: "CORE_SYSTEMS_LAB",
-    role: "System Integrator",
-    period: "2022.09 - 2023.01",
-    desc: "Developed secure kernel-level interfaces for industrial monitoring modules."
+    company: "RYON ASSET",
+    role: "DevOps Engineer",
+    period: "2024.07 - 0x7E7",
+    desc: "Infrastructure Management and DevOps Support."
   }
 ];
 

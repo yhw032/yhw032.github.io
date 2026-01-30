@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoadingScreenProps {
   onFinished: () => void;
@@ -7,9 +7,10 @@ interface LoadingScreenProps {
 
 const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
-    const duration = 2000; // 2.5 seconds total
+    const duration = 2000; // 2 seconds total
     const interval = 30; // 30ms updates
     const steps = duration / interval;
     const increment = 100 / steps;
@@ -18,7 +19,8 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onFinished, 500); // Small pause at 100%
+          setShowSuccess(true);
+          setTimeout(onFinished, 1500); // Wait for the success message flash
           return 100;
         }
         return Math.min(prev + increment, 100);
@@ -116,18 +118,55 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
             />
           </svg>
 
-          {/* Progress Number */}
+          {/* Progress Number / Success Message */}
           <div className="flex flex-col items-center">
-            <motion.span
-              className="text-6xl font-mono font-black text-brand tracking-tighter"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              {Math.floor(progress).toString().padStart(3, '0')}
-            </motion.span>
-            <span className="text-[10px] font-mono font-black text-brand/40 uppercase tracking-[0.5em] mt-2">
-              System_Boot
-            </span>
+            <AnimatePresence mode="wait">
+              {!showSuccess ? (
+                <motion.span
+                  key="progress"
+                  className="text-6xl font-mono font-black text-brand tracking-tighter"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.5, filter: 'blur(10px)' }}
+                >
+                  {Math.floor(progress).toString().padStart(3, '0')}
+                </motion.span>
+              ) : (
+                <motion.div
+                  key="success"
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, scale: 1.2 }}
+                  animate={{
+                    opacity: [1, 0, 1, 0, 1, 1],
+                    scale: 1
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    times: [0, 0.2, 0.4, 0.6, 0.8, 1],
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="text-3xl md:text-4xl font-mono font-black text-brand tracking-tight text-center px-4 leading-none">
+                    ACCESS_GRANTED
+                  </span>
+                  <div className="mt-4 flex gap-1">
+                    {[1, 2, 3].map((i) => (
+                      <motion.div
+                        key={i}
+                        className="w-2 h-2 bg-brand"
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ repeat: Infinity, duration: 0.4, delay: i * 0.1 }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            {!showSuccess && (
+              <span className="text-[10px] font-mono font-black text-brand/40 uppercase tracking-[0.5em] mt-2">
+                System_Boot
+              </span>
+            )}
           </div>
         </div>
 
@@ -136,8 +175,9 @@ const LoadingScreen = ({ onFinished }: LoadingScreenProps) => {
           <motion.div
             className="absolute inset-0 bg-brand"
             initial={{ scaleX: 0 }}
-            animate={{ scaleX: progress / 100 }}
+            animate={{ scaleX: showSuccess ? 1 : progress / 100 }}
             style={{ originX: 0 }}
+            transition={showSuccess ? { duration: 0.2 } : { ease: "linear" }}
           />
         </div>
       </motion.div>

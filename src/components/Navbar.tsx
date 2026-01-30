@@ -45,8 +45,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
-          ? 'bg-panel backdrop-blur-xl border-brand/20 shadow-sm py-2'
-          : 'bg-transparent border-transparent py-6'
+        ? 'bg-panel backdrop-blur-xl border-brand/20 shadow-sm py-2'
+        : 'bg-transparent border-transparent py-6'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center font-mono">
@@ -54,7 +54,7 @@ export default function Navbar() {
         <a href="#home" className="flex items-center gap-2 group">
           <Terminal className="text-brand group-hover:animate-pulse" size={24} />
           <span className="text-xl font-black tracking-[0.2em] text-brand uppercase">
-            System.<span className="opacity-50">root</span>
+            yhw032.<span className="opacity-50">github</span>
           </span>
         </a>
 
@@ -67,8 +67,8 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className={`group flex items-center gap-2 px-4 py-1.5 text-xs font-bold transition-all relative z-10 ${isActive
-                    ? 'text-brand-contrast'
-                    : 'text-text-muted hover:text-brand'
+                  ? 'text-brand-contrast'
+                  : 'text-text-muted hover:text-brand'
                   }`}
               >
                 <span className={`text-[10px] transition-opacity ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
@@ -126,8 +126,8 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center justify-between p-4 text-2xl font-black tracking-tighter transition-all ${isActive
-                        ? 'bg-brand text-brand-contrast'
-                        : 'text-text-muted hover:bg-brand/5'
+                      ? 'bg-brand text-brand-contrast'
+                      : 'text-text-muted hover:bg-brand/5'
                       }`}
                   >
                     <div className="flex items-center gap-4">

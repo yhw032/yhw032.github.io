@@ -81,7 +81,7 @@ const EXPERIENCE = [
     company: "RYON ASSET",
     role: "DevOps Engineer",
     period: "2024.07 - 0x7E7",
-    type: "Full-time",
+    type: "Freelancer",
     tech: ["AWS", "Terraform", "Docker", "GitHub Actions", "Python"],
     desc: "Infrastructure Management and DevOps Support.",
     fullDesc: "..."
@@ -110,18 +110,18 @@ const PROJECTS = [
     tech: "REACT, FLASK, AWS, PYTORCH",
     desc: "Language learning platform for the hearing impaired.",
     fullDesc: "This project aims to build a language learning platform for the hearing impaired, featuring a system that analyzes recordings of provided words or sentences made by learners and provides feedback.\n\nWhen learners record, the collected audio data is converted to text using the KoSpeech2 speech deep learning model based on DeepSpeech2.\n\nSubsequently, the Python-based speech analysis library Librosa3 is used to analyze acoustic features such as pitch and prosody.\n\nBased on the data obtained through this process, the platform provides visual feedback and performs text-based evaluations of the learner's pronunciation using OpenAI's GPT model.\n\nThis enables learners to receive feedback through various visual cues and correct their pronunciation accordingly.",
-    links: [{ label: "GITHUB", url: "#" }]
+    links: [{ label: "GITHUB", url: "https://github.com/hsu-capstone-prism/DamSeol" }]
   },
   {
     id: "PRJ-003",
     title: "K-ROUTE",
     organization: "Korea Tourism Organization",
     role: "Frontend Developer",
-    period: "2023.08 - 2023.09",
+    period: "2025.04 - 2025.09",
     tech: "REACT NATIVE, TYPESCRIPT",
-    desc: "Houdini-based paint worklets for generating procedural industrial patterns.",
-    fullDesc: "Exploration into the CSS Houdini Paint API to create high-performance procedural textures for technical UIs. Designed algorithms for generating randomized circuit-board patterns and hazard-stripe effects without image assets. Successfully integrated with Framer Motion for dynamic, state-reactive visual feedback.",
-    links: []
+    desc: "An AI-powered travel routing service for K-culture tourists, featuring interactive mapping and real-time data integration.",
+    fullDesc: "As the lead Front-end Developer for K-Route, I managed the entire lifecycle from Figma design to deployment. I established a cohesive design system and implemented it using React Native (Expo) and Styled-Components, ensuring both UI/UX consistency and high component reusability across the application.\n\nMy primary technical focus was the integration of complex mapping and data services. I embedded the Kakao Maps API via WebView to render color-coded transit routes for subway, bus, and walking paths, providing users with precise, multi-modal navigation. Furthermore, I integrated the OpenWeather API to deliver real-time, location-based weather updates within the travel itineraries.\n\nThe final product successfully delivers a seamless mobile experience, blending AI-driven routing with intuitive visual data. By optimizing the front-end architecture and navigation logic, I provided international travelers with a reliable and highly functional tool for exploring Korea.",
+    links: [{ label: "GITHUB", url: "https://github.com/HSU-MEY/frontend" }, { label: "ONE STORE", url: "https://m.onestore.co.kr/v2/ko-kr/app/0001002337" }]
   }
 ];
 

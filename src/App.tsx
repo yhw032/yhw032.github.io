@@ -13,6 +13,45 @@ const SYSTEM_LOGS = [
   "VIRTUAL_ENV_STABLE"
 ];
 
+const GLYPHS = "01ABCDEFGH_JKLMNOPQRSTUVWXYZ<>{}[]$%-+*";
+
+function DecipherText({ text, delay = 0 }: { text: string, delay?: number }) {
+  const [displayText, setDisplayText] = useState(() =>
+    text.split("").map(c => c === " " ? " " : GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join("")
+  );
+
+  useEffect(() => {
+    let iteration = 0;
+    let interval: ReturnType<typeof setInterval>;
+
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        setDisplayText(
+          text.split("")
+            .map((char, index) => {
+              if (index < iteration) return char;
+              if (char === " ") return " ";
+              return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+            })
+            .join("")
+        );
+
+        if (iteration >= text.length) {
+          clearInterval(interval);
+        }
+        iteration += 1 / 3;
+      }, 30);
+    }, delay * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
+  }, [text, delay]);
+
+  return <>{displayText}</>;
+}
+
 const EDUCATION = [
   {
     school: "DUICA",
@@ -142,63 +181,68 @@ function App() {
                 >
                   <motion.span layout className="shrink-0">H</motion.span>
 
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="popLayout">
                     {!isAlt ? (
                       <motion.span
                         key="hello"
-                        initial={{ opacity: 0, width: 0, x: -10 }}
-                        animate={{ opacity: 1, width: 'auto', x: 0 }}
-                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        layout
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                        className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                       >
-                        ELLO&nbsp;
+                        <DecipherText text="ELLO" />
+                        <span className="inline-block w-[0.1em]" />
                       </motion.span>
                     ) : (
                       <motion.span
                         key="hee"
-                        initial={{ opacity: 0, width: 0, x: -10 }}
-                        animate={{ opacity: 1, width: 'auto', x: 0 }}
-                        exit={{ opacity: 0, width: 0, x: -10 }}
+                        layout
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                        className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                       >
-                        EE&nbsp;
+                        <DecipherText text="EE" />
+                        <span className="inline-block w-[0.1em]" />
                       </motion.span>
                     )}
                   </AnimatePresence>
 
                   <motion.span layout className="shrink-0">W</motion.span>
 
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="popLayout">
                     {!isAlt ? (
                       <motion.span
                         key="world"
-                        initial={{ opacity: 0, width: 0, x: -10 }}
-                        animate={{ opacity: 1, width: 'auto', x: 0 }}
-                        exit={{ opacity: 0, width: 0, x: -10 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-                        className="overflow-hidden whitespace-nowrap px-[0.05em] origin-left"
+                        layout
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="px-[0.05em] origin-left whitespace-nowrap"
                       >
-                        ORLD
+                        <DecipherText text="ORLD" delay={0.15} />
                       </motion.span>
                     ) : (
                       <motion.span
                         key="wook"
-                        initial={{ opacity: 0, width: 0, x: -10 }}
-                        animate={{ opacity: 1, width: 'auto', x: 0 }}
-                        exit={{ opacity: 0, width: 0, x: -10 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-                        className="overflow-hidden whitespace-nowrap flex items-baseline origin-left"
+                        layout
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                       >
-                        <span className="px-[0.05em]">OOK</span>
+                        <DecipherText text="OOK" delay={0.15} />
                         <motion.span
-                          initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                          animate={{ opacity: 0.6, scale: 1, x: 0 }}
-                          transition={{ delay: 0.3 }}
-                          className="text-[0.2em] md:text-[0.18em] font-bold ml-4 tracking-normal normal-case whitespace-nowrap opacity-60 hidden md:inline-block border-l-2 border-brand/20 pl-4 py-1"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 0.6, x: 0 }}
+                          className="text-[0.2em] md:text-[0.18em] font-bold ml-2 tracking-normal normal-case whitespace-nowrap opacity-60 hidden md:inline-block border-l border-brand/20 pl-2 py-1 leading-none self-center"
                         >
-                          s GITHUB.IO
+                          <DecipherText text="s GITHUB.IO" delay={0.4} />
                         </motion.span>
                       </motion.span>
                     )}

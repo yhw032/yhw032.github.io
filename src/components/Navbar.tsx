@@ -14,7 +14,8 @@ const NAV_ITEMS: NavItem[] = [
   { id: '02', label: 'EDUCATION', href: '#education', icon: <GraduationCap size={14} /> },
   { id: '03', label: 'EXPERIENCE', href: '#experience', icon: <Briefcase size={14} /> },
   { id: '04', label: 'PROJECTS', href: '#projects', icon: <FolderCode size={14} /> },
-  { id: '05', label: 'CONTACT', href: '#contact', icon: <Mail size={14} /> },
+  { id: '05', label: 'STACK', href: '#stack', icon: <Terminal size={14} /> },
+  { id: '06', label: 'CONTACT', href: '#contact', icon: <Mail size={14} /> },
 ];
 
 export default function Navbar() {

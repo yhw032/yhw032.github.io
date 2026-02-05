@@ -549,7 +549,7 @@ function App() {
                       </div>
                     </div>
 
-                    {selectedProject.links.length > 0 && (
+                    {selectedProject.links && selectedProject.links.length > 0 && (
                       <div>
                         <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-4 block">{t('projects.handshake_links')}</span>
                         <div className="flex flex-col gap-2">

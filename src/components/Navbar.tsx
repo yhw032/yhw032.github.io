@@ -56,7 +56,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center font-mono">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
+        <a href="#home" className="flex items-center gap-2 group font-mono">
           <Terminal className="text-brand group-hover:animate-pulse" size={24} />
           <span className="text-xl font-black tracking-[0.2em] text-brand uppercase">
             yhw032.<span className="opacity-50">github</span>

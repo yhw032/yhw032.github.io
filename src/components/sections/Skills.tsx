@@ -19,17 +19,21 @@ function Node({
   className?: string;
 }) {
   return (
-    <div className={`relative flex flex-col items-center justify-center ${className}`}>
+    <div className={`relative flex flex-col items-center justify-center ${className} group`}>
       <div className={`
-        relative z-10 flex items-center justify-center p-3
+        relative z-10 flex items-center justify-center p-3 overflow-hidden
         ${isCenter
           ? 'w-20 h-20 bg-brand text-brand-contrast shadow-[0_0_25px_rgba(59,130,246,0.4)]'
-          : 'min-w-12 h-12 bg-panel/80 backdrop-blur-md border border-brand/20 text-brand px-4'
-        }
+          : 'min-w-12 h-12 border bg-brand-contrast border-brand/20 text-brand px-4'}
         transition-all duration-300
       `}>
-        {icon}
-        {!isCenter && <span className="ml-3 text-[10px] font-black uppercase tracking-widest">{name}</span>}
+        {!isCenter && (
+          <div className="absolute inset-0 bg-brand translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-[-1]" />
+        )}
+        <div className="relative z-10 flex items-center group-hover:text-brand-contrast transition-colors duration-300">
+          {icon}
+          {!isCenter && <span className="ml-3 text-[10px] font-black uppercase tracking-widest">{name}</span>}
+        </div>
       </div>
       {isCenter && (
         <span className="absolute top-full mt-4 text-[11px] font-black text-brand tracking-[0.2em] uppercase whitespace-nowrap">

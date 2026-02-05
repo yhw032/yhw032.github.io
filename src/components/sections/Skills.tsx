@@ -138,7 +138,7 @@ export function Skills() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-20 border-b border-brand/20 pb-12 font-mono">
+        <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-10 border-b border-brand/20 pb-12 font-mono">
           <div className="space-y-4">
             <span className="text-xs text-brand font-black tracking-[0.4em] uppercase opacity-60 font-mono">{t('stack.version')}</span>
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase font-sans leading-none">{t('stack.title')}</h2>
@@ -151,7 +151,7 @@ export function Skills() {
           </div>
         </div>
 
-        <div className="relative min-h-[600px] flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32">
+        <div className="relative min-h-[400px] flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32">
 
           <ConnectorLayer nodes={nodeRefs.current} coreRef={coreRef} />
 
@@ -166,7 +166,7 @@ export function Skills() {
                 </div>
                 <div className="flex flex-wrap justify-center md:justify-end gap-2 max-w-xs">
                   {cat.skills.map((skill: any) => (
-                    <div key={skill.name} className="bg-brand/5 border border-brand/10 px-3 py-1 text-[9px] font-black text-text-muted uppercase tracking-tighter hover:bg-brand/10 transition-colors">
+                    <div key={skill.name} className="z-10 bg-brand/5 border border-brand/10 px-3 py-1 text-[9px] font-black text-text-muted uppercase tracking-tighter hover:bg-brand/10 transition-colors">
                       {skill.name}
                     </div>
                   ))}
@@ -194,7 +194,7 @@ export function Skills() {
                   {cat.skills.map((skill: any) => (
                     <div
                       key={skill.name}
-                      className="bg-brand/5 border border-brand/10 px-3 py-1 text-[9px] font-black text-text-muted uppercase tracking-tighter hover:bg-brand/10 transition-colors"
+                      className="z-10 bg-brand/5 border border-brand/10 px-3 py-1 text-[9px] font-black text-text-muted uppercase tracking-tighter hover:bg-brand/10 transition-colors"
                     >
                       {skill.name}
                     </div>
@@ -205,7 +205,7 @@ export function Skills() {
           </div>
         </div>
 
-        <div className="mt-32 pt-8 border-t border-brand/10 flex justify-between items-center font-mono opacity-20">
+        <div className="mt-12 pt-8 border-t border-brand/10 flex justify-between items-center font-mono opacity-20">
           <div className="flex gap-4 text-[9px] font-black uppercase tracking-widest">
             <span>LINK_LOAD: STABLE</span>
             <span>NODE_COUNT: {SKILLS.length + SKILLS.reduce((acc, c) => acc + c.skills.length, 0)}</span>

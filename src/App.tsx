@@ -322,7 +322,7 @@ function App() {
                       <div className="lg:col-span-3">
                         <span className="text-[10px] text-brand block mb-1 font-mono font-black uppercase tracking-widest">{t('experience.period_stamp')}</span>
                         <span className="text-xl font-black">{exp.period}</span>
-                        <div className="mt-2 text-[10px] font-mono font-black text-brand-contrast bg-brand px-2 py-0.5 w-fit uppercase tracking-tighter">
+                        <div className="mt-2 text-[10px] font-medium text-brand-contrast bg-brand px-2 py-0.5 w-fit uppercase tracking-tighter">
                           {exp.type}
                         </div>
                       </div>
@@ -624,7 +624,7 @@ function App() {
               <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-24 border-b border-brand/20 pb-12 font-mono">
                 <div className="space-y-4">
                   <span className="text-xs text-brand font-black tracking-[0.4em] uppercase opacity-60">{t('stack.version')}</span>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase" data-text="STACK">{t('stack.title')}</h2>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase font-sans" data-text="STACK">{t('stack.title')}</h2>
                 </div>
                 <div className="hidden md:block text-right">
                   <span className="text-[10px] font-black tracking-widest text-brand opacity-40 uppercase">{t('stack.config')}</span>
@@ -694,7 +694,7 @@ function App() {
             </div>
             <div className="max-w-4xl mx-auto px-6 text-center space-y-12 relative z-10">
               <div className="space-y-4">
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase glitch" data-text="TRANSMIT">{t('contact.title')}</h2>
+                <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase glitch" data-text={t('contact.title')}>{t('contact.title')}</h2>
                 <p className="text-lg text-text-muted max-w-xl mx-auto leading-relaxed font-black uppercase tracking-widest">
                   {t('contact.desc')}
                 </p>

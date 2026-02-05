@@ -13,14 +13,6 @@
       "VIRTUAL_ENV_STABLE"
     ]
   },
-  "nav": {
-    "home": "HOME",
-    "education": "EDUCATION",
-    "stack": "STACK",
-    "experience": "EXPERIENCE",
-    "projects": "PROJECTS",
-    "contact": "CONTACT"
-  },
   "hero": {
     "hello": "ELLO",
     "world": "ORLD",
@@ -33,20 +25,50 @@
     "sub_desc": "I architect digital experiences where functionality dictates the form."
   },
   "education": {
-    "title": "학력",
+    "title": "학력/자격",
     "type": "TYPE: DATA_HISTORY",
-    "items": [
+    "degrees": [
       {
+        "id": "DEG-001",
         "school": "DUICA (동국대학교 전산원)",
         "degree": "컴퓨터공학 학사",
         "period": "2020.03 - 2022.02",
-        "details": "학점: 4.41/4.5. 핵심 데이터 시스템 전공."
+        "details": "학점: 4.41/4.5. 핵심 데이터 시스템 전공.",
+        "type": "ACADEMIC"
       },
       {
+        "id": "DEG-002",
         "school": "한성대학교",
         "degree": "컴퓨터공학부 웹공학 트랙",
         "period": "2022.03 - 2026.08",
-        "details": "학점: 4.02/4.5. 확장 가능한 웹 아키텍처 집중."
+        "details": "학점: 4.02/4.5. 확장 가능한 웹 아키텍처 집중.",
+        "type": "ACADEMIC"
+      }
+    ],
+    "programs": [
+      {
+        "id": "PRO-000",
+        "title": "TBD",
+        "issuer": "TBD",
+        "period": "TBD",
+        "details": "TBD",
+        "type": "TBD"
+      }
+    ],
+    "certifications": [
+      {
+        "id": "20-K9-110636",
+        "title": "컴퓨터활용능력 2급",
+        "issuer": "대한상공회의소",
+        "period": "2020.11",
+        "type": "국가기술자격"
+      },
+      {
+        "id": "NT2057979",
+        "title": "네트워크관리사 2급",
+        "issuer": "한국정보통신자격협회",
+        "period": "2021.09",
+        "type": "국가공인민간자격증증"
       }
     ]
   },

@@ -12,7 +12,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: '01', key: 'home', href: '#home', icon: <Home size={14} /> },
-  { id: '02', key: 'education', href: '#education', icon: <GraduationCap size={14} /> },
+  { id: '02', key: 'accerdiation', href: '#education', icon: <GraduationCap size={14} /> },
   { id: '03', key: 'experience', href: '#experience', icon: <Briefcase size={14} /> },
   { id: '04', key: 'projects', href: '#projects', icon: <FolderCode size={14} /> },
   { id: '05', key: 'stack', href: '#stack', icon: <Terminal size={14} /> },
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.substring(1);
-            const label = t(`nav.${item.key}`);
+            const label = item.key.toUpperCase();
             return (
               <a
                 key={item.key}
@@ -123,7 +123,7 @@ export default function Navbar() {
             <div className={`flex flex-col p-10 gap-4`}>
               {NAV_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
-                const label = t(`nav.${item.key}`);
+                const label = item.key.toUpperCase();
                 return (
                   <a
                     key={item.key}

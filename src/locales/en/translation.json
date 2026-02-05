@@ -13,14 +13,6 @@
       "VIRTUAL_ENV_STABLE"
     ]
   },
-  "nav": {
-    "home": "HOME",
-    "education": "EDUCATION",
-    "stack": "STACK",
-    "experience": "EXPERIENCE",
-    "projects": "PROJECTS",
-    "contact": "CONTACT"
-  },
   "hero": {
     "hello": "ELLO",
     "world": "ORLD",
@@ -33,20 +25,50 @@
     "sub_desc": "I architect digital experiences where functionality dictates the form."
   },
   "education": {
-    "title": "Education",
+    "title": "Accreditation",
     "type": "TYPE: DATA_HISTORY",
-    "items": [
+    "degrees": [
       {
+        "id": "DEG-001",
         "school": "DUICA",
         "degree": "Bachelor of Computer Science",
         "period": "2020.03 - 2022.02",
-        "details": "GPA: 4.41/4.5. Specialized in Core Data Systems."
+        "details": "GPA: 4.41/4.5. Specialized in Core Data Systems.",
+        "type": "ACADEMIC"
       },
       {
+        "id": "DEG-002",
         "school": "Hansung University",
         "degree": "Division of Computer Science, Web Engineering",
         "period": "2022.03 - 2026.08",
-        "details": "GPA: 4.02/4.5. Focus on Scalable Web Architecture."
+        "details": "GPA: 4.02/4.5. Focus on Scalable Web Architecture.",
+        "type": "ACADEMIC"
+      }
+    ],
+    "programs": [
+      {
+        "id": "PRO-000",
+        "title": "TBD",
+        "issuer": "TBD",
+        "period": "TBD",
+        "details": "TBD",
+        "type": "TBD"
+      }
+    ],
+    "certifications": [
+      {
+        "id": "20-K9-110636",
+        "title": "Computer Specialist in Spreadsheet & Database Level-II",
+        "issuer": "KCCI",
+        "period": "2020.11",
+        "type": "National Technical Qualification"
+      },
+      {
+        "id": "NT2057979",
+        "title": "Network Administrator Level-II",
+        "issuer": "ICQA",
+        "period": "2021.09",
+        "type": "National Public Private Qualification"
       }
     ]
   },

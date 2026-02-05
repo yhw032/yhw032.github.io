@@ -70,12 +70,10 @@
         "tech": [
           "Django",
           "Python",
-          "DRF",
-          "PostgreSQL",
-          "Nginx"
+          "MySQL"
         ],
         "desc": "Django Rest Framework를 이용한 가치(Gacci) 프로젝트 API 및 관리자 패널 개발.",
-        "fullDesc": "'가치(Gacci)' 프로젝트의 백엔드 개발을 주도하며, Django Rest Framework를 사용하여 견고한 RESTful API를 설계했습니다. 보안 인증 시스템, 데이터 검증 파이프라인 및 복잡한 데이터베이스 쿼리를 구현했습니다. 사용자 데이터와 시스템 설정을 효율적으로 관리하기 위한 관리자 대시보드를 설계하고 배포했습니다."
+        "fullDesc": "'가치(Gacci)' 프로젝트의 백엔드 개발을 주도하며, Django Rest Framework를 사용하여 견고한 RESTful API를 설계했습니다. 사용자 데이터와 시스템 설정을 효율적으로 관리하기 위한 관리자 대시보드를 설계하고 배포했습니다."
       },
       {
         "company": "RYON ASSET",
@@ -84,13 +82,14 @@
         "type": "프리랜서",
         "tech": [
           "AWS",
-          "Terraform",
-          "Docker",
-          "GitHub Actions",
-          "Python"
+          "GCP",
+          "Next.js",
+          "React",
+          "Hardhat",
+          "Wagmi/RainbowKit"
         ],
         "desc": "인프라 관리 및 DevOps 지원.",
-        "fullDesc": "AWS 인프라의 자동화 및 관리를 담당하며 Terraform을 통한 IaC(Infrastructure as Code)를 실천하고 있습니다. Docker와 GitHub Actions를 이용한 CI/CD 파이프라인을 구축하여 개발 효율성을 높였습니다."
+        "fullDesc": "작성 예정"
       }
     ]
   },
@@ -105,7 +104,9 @@
     "project_manifest": "PROJECT_MANIFEST",
     "system_dependencies": "SYSTEM_DEPENDENCIES",
     "manifest_verified": "MANIFEST_VERIFIED",
-    "items": [
+    "mini_lab_title": "MINI_LAB // 실험적 모듈",
+    "mini_lab_desc": "기술적 호기심으로 구현한 소규모 하이라이트 및 실험실 모듈입니다.",
+    "main_items": [
       {
         "id": "PRJ-001",
         "title": "Better Youtube UI",
@@ -163,7 +164,9 @@
             "url": "https://m.onestore.co.kr/v2/ko-kr/app/0001002337"
           }
         ]
-      },
+      }
+    ],
+    "mini_items": [
       {
         "id": "GAM-001",
         "title": "지뢰찾기 (MineSweeper)",

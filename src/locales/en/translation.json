@@ -70,12 +70,10 @@
         "tech": [
           "Django",
           "Python",
-          "DRF",
-          "PostgreSQL",
-          "Nginx"
+          "MySQL"
         ],
         "desc": "Developed Gacci Project API and Admin Panel with Django Rest Framework.",
-        "fullDesc": "Led the backend development for the 'Gacci' project, focusing on architecting a robust RESTful API using Django Rest Framework. Implemented secure authentication systems, data validation pipelines, and complex database queries. Designed and deployed an administrative dashboard to manage user data and system configurations efficiently."
+        "fullDesc": "Led the backend development for the 'Gacci' project, focusing on architecting a robust RESTful API using Django Rest Framework. Designed and deployed an administrative dashboard to manage user data and system configurations efficiently."
       },
       {
         "company": "RYON ASSET",
@@ -84,13 +82,14 @@
         "type": "Freelancer",
         "tech": [
           "AWS",
-          "Terraform",
-          "Docker",
-          "GitHub Actions",
-          "Python"
+          "GCP",
+          "Next.js",
+          "React",
+          "Hardhat",
+          "Wagmi/RainbowKit"
         ],
         "desc": "Infrastructure Management and DevOps Support.",
-        "fullDesc": "Infrastructure Management and DevOps Support."
+        "fullDesc": "-"
       }
     ]
   },
@@ -105,7 +104,9 @@
     "project_manifest": "PROJECT_MANIFEST",
     "system_dependencies": "SYSTEM_DEPENDENCIES",
     "manifest_verified": "MANIFEST_VERIFIED",
-    "items": [
+    "mini_lab_title": "MINI_LAB // EXPERIMENTAL_MODULES",
+    "mini_lab_desc": "Small-scale technical experiments and logic-based modules.",
+    "main_items": [
       {
         "id": "PRJ-001",
         "title": "Better Youtube UI",
@@ -163,7 +164,9 @@
             "url": "https://m.onestore.co.kr/v2/ko-kr/app/0001002337"
           }
         ]
-      },
+      }
+    ],
+    "mini_items": [
       {
         "id": "GAM-001",
         "title": "MineSweeper",

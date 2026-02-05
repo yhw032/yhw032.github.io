@@ -6,7 +6,9 @@ import { X, Code, ExternalLink } from 'lucide-react';
 export function Projects() {
   const { t } = useTranslation();
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const PROJECT_ITEMS = t('projects.items', { returnObjects: true }) as any[];
+
+  const MAIN_PROJECTS = t('projects.main_items', { returnObjects: true }) as any[];
+  const MINI_PROJECTS = t('projects.mini_items', { returnObjects: true }) as any[];
 
   // Lock scroll when modal is open
   useEffect(() => {
@@ -19,20 +21,22 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="py-40 bg-section-alt">
+      <section id="projects" className="py-24 md:py-40 bg-section-alt transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Main Projects Header */}
           <div className="flex items-center gap-4 mb-16">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">{t('projects.title')}</h2>
             <div className="h-px grow bg-border" />
             <span className="text-xs text-brand opacity-60 font-mono font-black">{t('projects.mode')}</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-            {PROJECT_ITEMS.map((project, idx) => (
+          {/* Main Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 mb-32 border-b border-border">
+            {MAIN_PROJECTS.map((project, idx) => (
               <div
                 key={idx}
                 onClick={() => setSelectedProject(project)}
-                className="tech-panel group p-10! border-border cursor-pointer shadow-sm"
+                className="tech-panel group p-10! border-border cursor-pointer shadow-sm hover:z-10"
               >
                 <div className="flex justify-between mb-8 opacity-40 group-hover:opacity-100 transition-opacity font-mono">
                   <span className="text-[10px] font-black">{project.id}</span>
@@ -78,6 +82,46 @@ export function Projects() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mini Lab / Experiments */}
+          <div className="space-y-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-l-4 border-brand pl-6">
+              <div>
+                <h3 className="text-2xl font-black uppercase tracking-tight">{t('projects.mini_lab_title')}</h3>
+                <p className="text-text-muted text-xs font-bold mt-1 opacity-60">{t('projects.mini_lab_desc')}</p>
+              </div>
+              <div className="flex gap-1 font-mono text-[9px] text-brand opacity-40">
+                <span>[EXPERIMENTAL_ACCESS: STABLE]</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {MINI_PROJECTS.map((project, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -5 }}
+                  onClick={() => setSelectedProject(project)}
+                  className="bg-panel/40 backdrop-blur-sm border border-border p-6 cursor-pointer hover:border-brand/40 group transition-all"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-[9px] font-mono text-brand/40 group-hover:text-brand transition-colors">{project.id}</span>
+                    <div className="w-8 h-px bg-brand/20 group-hover:w-12 transition-all" />
+                  </div>
+                  <h4 className="text-lg font-black uppercase tracking-tighter mb-3 group-hover:text-brand transition-colors">{project.title}</h4>
+                  <p className="text-text-muted text-[11px] font-bold leading-relaxed mb-4 line-clamp-2">
+                    {project.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 opacity-60">
+                    {project.tech.split(', ').map((t: string, i: number) => (
+                      <span key={i} className="text-[8px] font-black text-brand bg-brand/5 px-1.5 py-0.5 uppercase">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

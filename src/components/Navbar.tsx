@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home, Briefcase, GraduationCap, FolderCode, Mail, Terminal } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 interface NavItem {
   id: string;
@@ -20,7 +19,6 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export default function Navbar() {
-  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');

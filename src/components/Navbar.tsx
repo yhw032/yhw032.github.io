@@ -1,27 +1,31 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home, Briefcase, GraduationCap, FolderCode, Mail, Terminal } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface NavItem {
   id: string;
-  label: string;
+  key: string;
   href: string;
   icon: React.ReactNode;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: '01', label: 'HOME', href: '#home', icon: <Home size={14} /> },
-  { id: '02', label: 'EDUCATION', href: '#education', icon: <GraduationCap size={14} /> },
-  { id: '03', label: 'EXPERIENCE', href: '#experience', icon: <Briefcase size={14} /> },
-  { id: '04', label: 'PROJECTS', href: '#projects', icon: <FolderCode size={14} /> },
-  { id: '05', label: 'STACK', href: '#stack', icon: <Terminal size={14} /> },
-  { id: '06', label: 'CONTACT', href: '#contact', icon: <Mail size={14} /> },
+  { id: '01', key: 'home', href: '#home', icon: <Home size={14} /> },
+  { id: '02', key: 'education', href: '#education', icon: <GraduationCap size={14} /> },
+  { id: '03', key: 'experience', href: '#experience', icon: <Briefcase size={14} /> },
+  { id: '04', key: 'projects', href: '#projects', icon: <FolderCode size={14} /> },
+  { id: '05', key: 'stack', href: '#stack', icon: <Terminal size={14} /> },
+  { id: '06', key: 'contact', href: '#contact', icon: <Mail size={14} /> },
 ];
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  const langClass = i18n.language.startsWith('ko') ? 'lang-ko' : 'lang-en';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +49,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled || isOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${langClass} ${scrolled || isOpen
         ? 'bg-panel backdrop-blur-xl border-brand/20 shadow-sm py-2'
         : 'bg-transparent border-transparent py-6'
         }`}
@@ -63,9 +67,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.substring(1);
+            const label = t(`nav.${item.key}`);
             return (
               <a
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 className={`group flex items-center gap-2 px-4 py-1.5 text-xs font-bold transition-all relative z-10 ${isActive
                   ? 'text-brand-contrast'
@@ -75,7 +80,7 @@ export default function Navbar() {
                 <span className={`text-[10px] transition-opacity ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
                   [{item.id}]
                 </span>
-                <span className="tracking-widest">{item.label}</span>
+                <span className="tracking-widest">{label}</span>
 
                 {isActive && (
                   <motion.div
@@ -117,12 +122,13 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden fixed inset-x-0 top-full bg-panel backdrop-blur-2xl z-40 border-t border-brand/10 overflow-hidden"
           >
-            <div className="flex flex-col p-10 gap-4">
+            <div className={`flex flex-col p-10 gap-4 ${langClass}`}>
               {NAV_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
+                const label = t(`nav.${item.key}`);
                 return (
                   <a
-                    key={item.label}
+                    key={item.key}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center justify-between p-4 text-2xl font-black tracking-tighter transition-all ${isActive
@@ -132,7 +138,7 @@ export default function Navbar() {
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-xs opacity-40">[{item.id}]</span>
-                      {item.label}
+                      {label}
                     </div>
                     {item.icon}
                   </a>

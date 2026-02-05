@@ -1,0 +1,202 @@
+{
+  "system": {
+    "access_granted": "SYSTEM_ACCESS: GRANTED",
+    "status": "SYS_STATUS: NOMINAL",
+    "coord_x": "COORD_X: 37.3784",
+    "coord_y": "COORD_Y: 127.1143",
+    "node_id": "NODE_ID: YHW-032",
+    "link": "LINK: ENCRYPTED",
+    "logs": [
+      "INIT_SEQUENCE_SUCCESSFUL",
+      "CORE_KERNEL_LOADED",
+      "UI_INTERFACE_READY",
+      "VIRTUAL_ENV_STABLE"
+    ]
+  },
+  "nav": {
+    "home": "HOME",
+    "education": "EDUCATION",
+    "stack": "STACK",
+    "experience": "EXPERIENCE",
+    "projects": "PROJECTS",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "hello": "ELLO",
+    "world": "ORLD",
+    "wook": "OOK",
+    "ee": "EE",
+    "github_label": "의 GITHUB.IO",
+    "core_value": "CORE_VALUE: HUMAN_INTERFACE",
+    "online": "ONLINE",
+    "main_desc": "User first, decorate later.",
+    "sub_desc": "I architect digital experiences where functionality dictates the form."
+  },
+  "education": {
+    "title": "학력",
+    "type": "TYPE: DATA_HISTORY",
+    "items": [
+      {
+        "school": "DUICA (동국대학교 전산원)",
+        "degree": "컴퓨터공학 학사",
+        "period": "2020.03 - 2022.02",
+        "details": "학점: 4.41/4.5. 핵심 데이터 시스템 전공."
+      },
+      {
+        "school": "한성대학교",
+        "degree": "컴퓨터공학부 웹공학 트랙",
+        "period": "2022.03 - 2026.08",
+        "details": "학점: 4.02/4.5. 확장 가능한 웹 아키텍처 집중."
+      }
+    ]
+  },
+  "experience": {
+    "title": "경력",
+    "log_level": "LOG_LEVEL: JUNIOR",
+    "period_stamp": "PERIOD_STAMP",
+    "organization": "ORGANIZATION",
+    "status_role": "STATUS_ROLE",
+    "more": "MORE",
+    "resource_details": "RESOURCE_DETAILS",
+    "detailed_manifest": "DETAILED_MANIFEST",
+    "technical_stack": "TECHNICAL_STACK",
+    "sys_access_stable": "SYSTEM_ACCESS_STABLE",
+    "items": [
+      {
+        "company": "GNC SOLUTION",
+        "role": "백엔드 개발자",
+        "period": "2025.04 - 2025.06",
+        "type": "인턴",
+        "tech": [
+          "Django",
+          "Python",
+          "DRF",
+          "PostgreSQL",
+          "Nginx"
+        ],
+        "desc": "Django Rest Framework를 이용한 가치(Gacci) 프로젝트 API 및 관리자 패널 개발.",
+        "fullDesc": "'가치(Gacci)' 프로젝트의 백엔드 개발을 주도하며, Django Rest Framework를 사용하여 견고한 RESTful API를 설계했습니다. 보안 인증 시스템, 데이터 검증 파이프라인 및 복잡한 데이터베이스 쿼리를 구현했습니다. 사용자 데이터와 시스템 설정을 효율적으로 관리하기 위한 관리자 대시보드를 설계하고 배포했습니다."
+      },
+      {
+        "company": "RYON ASSET",
+        "role": "DevOps 엔지니어",
+        "period": "2024.07 - 현재",
+        "type": "프리랜서",
+        "tech": [
+          "AWS",
+          "Terraform",
+          "Docker",
+          "GitHub Actions",
+          "Python"
+        ],
+        "desc": "인프라 관리 및 DevOps 지원.",
+        "fullDesc": "AWS 인프라의 자동화 및 관리를 담당하며 Terraform을 통한 IaC(Infrastructure as Code)를 실천하고 있습니다. Docker와 GitHub Actions를 이용한 CI/CD 파이프라인을 구축하여 개발 효율성을 높였습니다."
+      }
+    ]
+  },
+  "projects": {
+    "title": "프로젝트",
+    "mode": "MODE: DEPLOYED",
+    "org": "ORG",
+    "role": "ROLE",
+    "time": "TIME",
+    "unit": "UNIT",
+    "handshake_links": "HANDSHAKE_LINKS",
+    "project_manifest": "PROJECT_MANIFEST",
+    "system_dependencies": "SYSTEM_DEPENDENCIES",
+    "manifest_verified": "MANIFEST_VERIFIED",
+    "items": [
+      {
+        "id": "PRJ-001",
+        "title": "Better Youtube UI",
+        "organization": "개인",
+        "role": "개발자",
+        "period": "2024.05 - 현재",
+        "tech": "JS, CSS, BROWSER EXTENSION, CONTENT SCRIPT",
+        "desc": "유튜브의 UI/UX 단점을 개선하여 댓글창을 영상 옆으로 이동시키고 스크롤을 제한하는 브라우저 확장 프로그램.",
+        "fullDesc": "유튜브의 주요 UI/UX 결함을 해결하기 위해 댓글 섹션을 비디오 옆으로 재배치하고 스크롤을 제한하는 브라우저 확장 프로그램을 독립적으로 개발하고 배포했습니다. 4,000명 이상의 활성 사용자를 확보하여 사용자 중심의 문제 해결 능력과 제품 생존력을 입증했습니다. 사용자 피드백과 플랫폼 변화에 따라 지속적인 업데이트를 관리했습니다."
+      },
+      {
+        "id": "PRJ-002",
+        "title": "담설 (DAMSEOL)",
+        "team": "PRISM",
+        "organization": "한성대학교",
+        "role": "팀장, AI/프론트엔드 개발자",
+        "period": "2024.12 - 2025.05",
+        "tech": "REACT, FLASK, AWS, PYTORCH",
+        "desc": "청각 장애인을 위한 언어 학습 플랫폼.",
+        "fullDesc": "본 프로젝트는 청각 장애인을 위한 언어 학습 플랫폼 구축을 목표로 하며, 학습자가 제공된 단어나 문장을 녹음한 것을 분석하여 피드백을 제공하는 시스템을 특징으로 합니다.\n\n학습자가 녹음하면 수집된 오디오 데이터는 DeepSpeech2 기반의 KoSpeech2 음성 딥러닝 모델을 사용하여 텍스트로 변환됩니다.\n\n이어서 Python 기반 음성 분석 라이브러리인 Librosa를 사용하여 피치 및 운율과 같은 음향 특징을 분석합니다.\n\n이 과정을 통해 얻은 데이터를 바탕으로 플랫폼은 시각적 피드백을 제공하고 OpenAI의 GPT 모델을 사용하여 학습자의 발음에 대한 텍스트 기반 평가를 수행합니다.\n\n이를 통해 학습자는 다양한 시각적 단서를 통해 피드백을 받고 그에 따라 발음을 교정할 수 있습니다."
+      },
+      {
+        "id": "PRJ-003",
+        "title": "K-ROUTE",
+        "team": "MEY",
+        "organization": "한국관광공사",
+        "role": "프론트엔드 개발자",
+        "period": "2025.04 - 2025.09",
+        "tech": "REACT NATIVE, TYPESCRIPT",
+        "desc": "K-컬처 관광객을 위한 AI 기반 여행 경로 서비스로, 인터랙티브 맵과 실시간 데이터 통합 기능을 제공합니다.",
+        "fullDesc": "K-Route의 리드 프론트엔드 개발자로서 Figma 설계부터 배포까지 전 과정을 관리했습니다. 일관된 디자인 시스템을 구축하고 React Native(Expo) 및 Styled-Components를 사용하여 구현함으로써 UI/UX 일관성과 높은 컴포넌트 재사용성을 보장했습니다.\n\n주요 기술적 집중 분야는 복잡한 매핑 및 데이터 서비스의 통합이었습니다. Kakao Maps API를 WebView를 통해 삽입하여 지하철, 버스, 도보 경로를 색상별로 렌더링함으로써 사용자에게 정밀한 다중 모드 네비게이션을 제공했습니다. 또한 OpenWeather API를 통합하여 여행 일정 내에 실시간 위치 기반 날씨 업데이트를 제공했습니다.\n\n최종 제품은 직관적인 시각적 데이터와 AI 기반 경로 찾기가 결합된 원활한 모바일 경험을 성공적으로 제공합니다."
+      },
+      {
+        "id": "GAM-001",
+        "title": "지뢰찾기 (MineSweeper)",
+        "organization": "개인",
+        "role": "개발자",
+        "period": "2022",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "심플한 지뢰찾기 게임.",
+        "fullDesc": ""
+      },
+      {
+        "id": "GAM-002",
+        "title": "과일 만들기 (Fruits Maker)",
+        "organization": "개인",
+        "role": "개발자",
+        "period": "2025.12",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "과일 병합 게임",
+        "fullDesc": ""
+      },
+      {
+        "id": "GAM-003",
+        "title": "사과 게임 (Apple Game)",
+        "organization": "개인",
+        "role": "개발자",
+        "period": "2025.12 - 2026.01",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "합이 10이 되도록 사과를 드래그하여 선택하는 빠른 속도의 퍼즐 게임",
+        "fullDesc": ""
+      }
+    ]
+  },
+  "stack": {
+    "version": "TECHNICAL_BLUEPRINT // v4.2.0",
+    "config": "MODULE_CONFIGURATION",
+    "title": "스택",
+    "categories": {
+      "DEVELOPMENT": "개발",
+      "INFRASTRUCTURE": "인프라",
+      "TOOLING": "도구",
+      "CREATIVE": "크리에이티브",
+      "MANAGEMENT": "관리"
+    },
+    "labels": {
+      "CORE_SYSTEMS": "CORE_SYSTEMS",
+      "ORCHESTRATION": "ORCHESTRATION",
+      "ENV_STABLE": "ENV_STABLE",
+      "DESIGN_MEDIA": "DESIGN_MEDIA",
+      "PRODUCTIVITY": "PRODUCTIVITY"
+    },
+    "stable": "STABLE"
+  },
+  "contact": {
+    "title": "전송",
+    "bg": "CONNECT",
+    "desc": "새로운 프로토콜 준비 완료. 협업 채널이 열려 있습니다.",
+    "send_mail": "메일 보내기",
+    "copy_address": "주소 복사",
+    "copied": "복사됨!",
+    "follow": "FOLLOW_LINK"
+  }
+}

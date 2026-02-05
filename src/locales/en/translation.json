@@ -1,0 +1,202 @@
+{
+  "system": {
+    "access_granted": "SYSTEM_ACCESS: GRANTED",
+    "status": "SYS_STATUS: NOMINAL",
+    "coord_x": "COORD_X: 37.3784",
+    "coord_y": "COORD_Y: 127.1143",
+    "node_id": "NODE_ID: YHW-032",
+    "link": "LINK: ENCRYPTED",
+    "logs": [
+      "INIT_SEQUENCE_SUCCESSFUL",
+      "CORE_KERNEL_LOADED",
+      "UI_INTERFACE_READY",
+      "VIRTUAL_ENV_STABLE"
+    ]
+  },
+  "nav": {
+    "home": "HOME",
+    "education": "EDUCATION",
+    "stack": "STACK",
+    "experience": "EXPERIENCE",
+    "projects": "PROJECTS",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "hello": "ELLO",
+    "world": "ORLD",
+    "wook": "OOK",
+    "ee": "EE",
+    "github_label": "s GITHUB.IO",
+    "core_value": "CORE_VALUE: HUMAN_INTERFACE",
+    "online": "ONLINE",
+    "main_desc": "User first, decorate later.",
+    "sub_desc": "I architect digital experiences where functionality dictates the form."
+  },
+  "education": {
+    "title": "Education",
+    "type": "TYPE: DATA_HISTORY",
+    "items": [
+      {
+        "school": "DUICA",
+        "degree": "Bachelor of Computer Science",
+        "period": "2020.03 - 2022.02",
+        "details": "GPA: 4.41/4.5. Specialized in Core Data Systems."
+      },
+      {
+        "school": "Hansung University",
+        "degree": "Division of Computer Science, Web Engineering",
+        "period": "2022.03 - 2026.08",
+        "details": "GPA: 4.02/4.5. Focus on Scalable Web Architecture."
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "log_level": "LOG_LEVEL: JUNIOR",
+    "period_stamp": "PERIOD_STAMP",
+    "organization": "ORGANIZATION",
+    "status_role": "STATUS_ROLE",
+    "more": "MORE",
+    "resource_details": "RESOURCE_DETAILS",
+    "detailed_manifest": "DETAILED_MANIFEST",
+    "technical_stack": "TECHNICAL_STACK",
+    "sys_access_stable": "SYS_ACCESS_STABLE",
+    "items": [
+      {
+        "company": "GNC SOLUTION",
+        "role": "Backend Developer",
+        "period": "2025.04 - 2025.06",
+        "type": "Intern",
+        "tech": [
+          "Django",
+          "Python",
+          "DRF",
+          "PostgreSQL",
+          "Nginx"
+        ],
+        "desc": "Developed Gacci Project API and Admin Panel with Django Rest Framework.",
+        "fullDesc": "Led the backend development for the 'Gacci' project, focusing on architecting a robust RESTful API using Django Rest Framework. Implemented secure authentication systems, data validation pipelines, and complex database queries. Designed and deployed an administrative dashboard to manage user data and system configurations efficiently."
+      },
+      {
+        "company": "RYON ASSET",
+        "role": "DevOps Engineer",
+        "period": "2024.07 - Present",
+        "type": "Freelancer",
+        "tech": [
+          "AWS",
+          "Terraform",
+          "Docker",
+          "GitHub Actions",
+          "Python"
+        ],
+        "desc": "Infrastructure Management and DevOps Support.",
+        "fullDesc": "Infrastructure Management and DevOps Support."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "mode": "MODE: DEPLOYED",
+    "org": "ORG",
+    "role": "ROLE",
+    "time": "TIME",
+    "unit": "UNIT",
+    "handshake_links": "HANDSHAKE_LINKS",
+    "project_manifest": "PROJECT_MANIFEST",
+    "system_dependencies": "SYSTEM_DEPENDENCIES",
+    "manifest_verified": "MANIFEST_VERIFIED",
+    "items": [
+      {
+        "id": "PRJ-001",
+        "title": "Better Youtube UI",
+        "organization": "Personal",
+        "role": "Developer",
+        "period": "2024.05 - ",
+        "tech": "JS, CSS, BROWSER EXTENSION, CONTENT SCRIPT",
+        "desc": "Browser extension that solves a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll.",
+        "fullDesc": "Independently developed and deployed a browser extension to solve a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll. Achieved over 4,000 active users, demonstrating strong user-centric problem-solving and product viability. Managed and provided continuous updates based on user feedback and platform changes."
+      },
+      {
+        "id": "PRJ-002",
+        "title": "DAMSEOL",
+        "team": "PRISM",
+        "organization": "Hansung University",
+        "role": "Team Leader, AI/Frontend Developer",
+        "period": "2024.12 - 2025.05",
+        "tech": "REACT, FLASK, AWS, PYTORCH",
+        "desc": "Language learning platform for the hearing impaired.",
+        "fullDesc": "This project aims to build a language learning platform for the hearing impaired, featuring a system that analyzes recordings of provided words or sentences made by learners and provides feedback.\n\nWhen learners record, the collected audio data is converted to text using the KoSpeech2 speech deep learning model based on DeepSpeech2.\n\nSubsequently, the Python-based speech analysis library Librosa3 is used to analyze acoustic features such as pitch and prosody.\n\nBased on the data obtained through this process, the platform provides visual feedback and performs text-based evaluations of the learner's pronunciation using OpenAI's GPT model.\n\nThis enables learners to receive feedback through various visual cues and correct their pronunciation accordingly."
+      },
+      {
+        "id": "PRJ-003",
+        "title": "K-ROUTE",
+        "team": "MEY",
+        "organization": "Korea Tourism Organization",
+        "role": "Frontend Developer",
+        "period": "2025.04 - 2025.09",
+        "tech": "REACT NATIVE, TYPESCRIPT",
+        "desc": "An AI-powered travel routing service for K-culture tourists, featuring interactive mapping and real-time data integration.",
+        "fullDesc": "As the lead Front-end Developer for K-Route, I managed the entire lifecycle from Figma design to deployment. I established a cohesive design system and implemented it using React Native (Expo) and Styled-Components, ensuring both UI/UX consistency and high component reusability across the application.\n\nMy primary technical focus was the integration of complex mapping and data services. I embedded the Kakao Maps API via WebView to render color-coded transit routes for subway, bus, and walking paths, providing users with precise, multi-modal navigation. Furthermore, I integrated the OpenWeather API to deliver real-time, location-based weather updates within the travel itineraries.\n\nThe final product successfully delivers a seamless mobile experience, blending AI-driven routing with intuitive visual data. By optimizing the front-end architecture and navigation logic, I provided international travelers with a reliable and highly functional tool for exploring Korea."
+      },
+      {
+        "id": "GAM-001",
+        "title": "MineSweeper",
+        "organization": "Personal",
+        "role": "Developer",
+        "period": "2022",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "Simple minesweeper game.",
+        "fullDesc": ""
+      },
+      {
+        "id": "GAM-002",
+        "title": "Fruits Maker",
+        "organization": "Personal",
+        "role": "Developer",
+        "period": "2025.12",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "Fruit merging game",
+        "fullDesc": ""
+      },
+      {
+        "id": "GAM-003",
+        "title": "Apple Game",
+        "organization": "Personal",
+        "role": "Developer",
+        "period": "2025.12 - 2026.01",
+        "tech": "JAVASCRIPT, HTML, CSS",
+        "desc": "A fast-paced puzzle game where you drag to select apples that sum to exactly 10",
+        "fullDesc": ""
+      }
+    ]
+  },
+  "stack": {
+    "version": "TECHNICAL_BLUEPRINT // v4.2.0",
+    "config": "MODULE_CONFIGURATION",
+    "title": "Stack",
+    "categories": {
+      "DEVELOPMENT": "DEVELOPMENT",
+      "INFRASTRUCTURE": "INFRASTRUCTURE",
+      "TOOLING": "TOOLING",
+      "CREATIVE": "CREATIVE",
+      "MANAGEMENT": "MANAGEMENT"
+    },
+    "labels": {
+      "CORE_SYSTEMS": "CORE_SYSTEMS",
+      "ORCHESTRATION": "ORCHESTRATION",
+      "ENV_STABLE": "ENV_STABLE",
+      "DESIGN_MEDIA": "DESIGN_MEDIA",
+      "PRODUCTIVITY": "PRODUCTIVITY"
+    },
+    "stable": "STABLE"
+  },
+  "contact": {
+    "title": "Transmit",
+    "bg": "CONNECT",
+    "desc": "READY FOR NEW PROTOCOLS. COLLABORATION CHANNELS OPEN.",
+    "send_mail": "SEND MAIL",
+    "copy_address": "COPY ADDRESS",
+    "copied": "COPIED!",
+    "follow": "FOLLOW_LINK"
+  }
+}

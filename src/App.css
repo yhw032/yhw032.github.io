@@ -38,11 +38,26 @@ html {
 }
 
 body {
-  @apply bg-brand-bg text-text-main transition-colors duration-500 font-mono;
+  @apply bg-brand-bg text-text-main transition-colors duration-500;
   background-image:
     linear-gradient(var(--color-border) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+/* Language Specific Fonts */
+.lang-en {
+  font-family: var(--font-mono);
+}
+
+.lang-ko {
+  font-family: var(--font-sans);
+}
+
+.lang-ko .font-mono,
+.lang-ko code,
+.lang-ko pre {
+  font-family: var(--font-mono);
 }
 
 /* --- Scanline Effect --- */

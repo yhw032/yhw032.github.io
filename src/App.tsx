@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
+import { useTranslation } from 'react-i18next'
 import { X, Briefcase, Code, ExternalLink, Github, Linkedin, Mail, Copy, Check, Terminal, Cpu, Database, Palette, Shield, Zap, Layout, Monitor, Server, Box, GitBranch, Binary, Globe } from 'lucide-react'
 import ThemeToggle from './components/ThemeToggle'
 import LoadingScreen from './components/LoadingScreen'
+import LanguageToggle from './components/LanguageToggle'
 import './App.css'
 
 // --- Technical Data Overlays ---
-const SYSTEM_LOGS = [
-  "INIT_SEQUENCE_SUCCESSFUL",
-  "CORE_KERNEL_LOADED",
-  "UI_INTERFACE_READY",
-  "VIRTUAL_ENV_STABLE"
-];
-
 const GLYPHS = "01ABCDEFGH_JKLMNOPQRSTUVWXYZ<>{}[]$%-+*";
 
 function DecipherText({ text, delay = 0 }: { text: string, delay?: number }) {
@@ -52,113 +47,7 @@ function DecipherText({ text, delay = 0 }: { text: string, delay?: number }) {
 
   return <>{displayText}</>;
 }
-
-const EDUCATION = [
-  {
-    school: "DUICA",
-    degree: "Bachelor of Computer Science",
-    period: "2020.03 - 2022.02",
-    details: "GPA: 4.41/4.5. Specialized in Core Data Systems."
-  },
-  {
-    school: "Hansung University",
-    degree: "Division of Computer Science, Web Engineering",
-    period: "2022.03 - 2026.08",
-    details: "GPA: 4.02/4.5. Focus on Scalable Web Architecture."
-  }
-];
-
-const EXPERIENCE = [
-  {
-    company: "GNC SOLUTION",
-    role: "Backend Developer",
-    period: "2025.04 - 2025.06",
-    type: "Intern",
-    tech: ["Django", "Python", "DRF", "PostgreSQL", "Nginx"],
-    desc: "Developed Gacci Project API and Admin Panel with Django Rest Framework.",
-    fullDesc: "Led the backend development for the 'Gacci' project, focusing on architecting a robust RESTful API using Django Rest Framework. Implemented secure authentication systems, data validation pipelines, and complex database queries. Designed and deployed an administrative dashboard to manage user data and system configurations efficiently."
-  },
-  {
-    company: "RYON ASSET",
-    role: "DevOps Engineer",
-    period: "2024.07 - Present",
-    type: "Freelancer",
-    tech: ["AWS", "Terraform", "Docker", "GitHub Actions", "Python"],
-    desc: "Infrastructure Management and DevOps Support.",
-    fullDesc: "..."
-  }
-];
-
-const PROJECTS = [
-  {
-    id: "PRJ-001",
-    title: "Better Youtube UI",
-    organization: "Personal",
-    role: "Developer",
-    period: "2024.05 - ",
-    tech: "JS, CSS, BROWSER EXTENSION, CONTENT SCRIPT",
-    desc: "Browser extension that solves a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll.",
-    fullDesc: "Independently developed and deployed a browser extension to solve a major YouTube UI/UX flaw by relocating the comment section next to the video and containing its scroll. Achieved over 4,000 active users, demonstrating strong user-centric problem-solving and product viability. Managed and provided continuous updates based on user feedback and platform changes.",
-    links: [{ label: "GITHUB", url: "https://github.com/yhw032/BetterYoutubeUI" }, { label: "WHALE STORE", url: "https://store.whale.naver.com/detail/dognllhkkhmkgpmhpfggjjcbcnhhnloi" }]
-  },
-  {
-    id: "PRJ-002",
-    title: "DAMSEOL",
-    team: "PRISM",
-    organization: "Hansung University",
-    role: "Team Leader, AI/Frontend Developer",
-    period: "2024.12 - 2025.05",
-    tech: "REACT, FLASK, AWS, PYTORCH",
-    desc: "Language learning platform for the hearing impaired.",
-    fullDesc: "This project aims to build a language learning platform for the hearing impaired, featuring a system that analyzes recordings of provided words or sentences made by learners and provides feedback.\n\nWhen learners record, the collected audio data is converted to text using the KoSpeech2 speech deep learning model based on DeepSpeech2.\n\nSubsequently, the Python-based speech analysis library Librosa3 is used to analyze acoustic features such as pitch and prosody.\n\nBased on the data obtained through this process, the platform provides visual feedback and performs text-based evaluations of the learner's pronunciation using OpenAI's GPT model.\n\nThis enables learners to receive feedback through various visual cues and correct their pronunciation accordingly.",
-    links: [{ label: "GITHUB", url: "https://github.com/hsu-capstone-prism/DamSeol" }]
-  },
-  {
-    id: "PRJ-003",
-    title: "K-ROUTE",
-    team: "MEY",
-    organization: "Korea Tourism Organization",
-    role: "Frontend Developer",
-    period: "2025.04 - 2025.09",
-    tech: "REACT NATIVE, TYPESCRIPT",
-    desc: "An AI-powered travel routing service for K-culture tourists, featuring interactive mapping and real-time data integration.",
-    fullDesc: "As the lead Front-end Developer for K-Route, I managed the entire lifecycle from Figma design to deployment. I established a cohesive design system and implemented it using React Native (Expo) and Styled-Components, ensuring both UI/UX consistency and high component reusability across the application.\n\nMy primary technical focus was the integration of complex mapping and data services. I embedded the Kakao Maps API via WebView to render color-coded transit routes for subway, bus, and walking paths, providing users with precise, multi-modal navigation. Furthermore, I integrated the OpenWeather API to deliver real-time, location-based weather updates within the travel itineraries.\n\nThe final product successfully delivers a seamless mobile experience, blending AI-driven routing with intuitive visual data. By optimizing the front-end architecture and navigation logic, I provided international travelers with a reliable and highly functional tool for exploring Korea.",
-    links: [{ label: "GITHUB", url: "https://github.com/HSU-MEY/frontend" }, { label: "ONE STORE", url: "https://m.onestore.co.kr/v2/ko-kr/app/0001002337" }]
-  },
-  {
-    id: "GAM-001",
-    title: "MineSweeper",
-    organization: "Personal",
-    role: "Developer",
-    period: "2022",
-    tech: "JAVASCRIPT, HTML, CSS",
-    desc: "Simple minesweeper game.",
-    fullDesc: "",
-    links: [{ label: "GITHUB", url: "https://github.com/yhw032/MineSweeper" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/MineSweeper/minesweeper.html" }]
-  },
-  {
-    id: "GAM-002",
-    title: "Fruits Maker",
-    organization: "Personal",
-    role: "Developer",
-    period: "2025.12",
-    tech: "JAVASCRIPT, HTML, CSS",
-    desc: "Fruit merging game",
-    fullDesc: "",
-    links: [{ label: "GITHUB", url: "https://github.com/yhw032/fruits-maker" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/fruits-maker/index.html" }]
-  },
-  {
-    id: "GAM-003",
-    title: "Apple Game",
-    organization: "Personal",
-    role: "Developer",
-    period: "2025.12 - 2026.01",
-    tech: "JAVASCRIPT, HTML, CSS",
-    desc: "A fast-paced puzzle game where you drag to select apples that sum to exactly 10",
-    fullDesc: "",
-    links: [{ label: "GITHUB", url: "https://github.com/yhw032/apple-game" }, { label: "GITHUB.IO", url: "https://yhw032.github.io/apple-game" }]
-  }
-];
+// Data handles through i18n
 
 const SKILLS = [
   {
@@ -218,12 +107,21 @@ const SKILLS = [
 ];
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [isAlt, setIsAlt] = useState(false);
-  const [selectedExp, setSelectedExp] = useState<typeof EXPERIENCE[0] | null>(null);
-  const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
+  const [selectedExp, setSelectedExp] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
   const [showMailMenu, setShowMailMenu] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  const langClass = i18n.language.startsWith('ko') ? 'lang-ko' : 'lang-en';
+
+  // Extract translation-ready items
+  const EDUCATION_ITEMS = t('education.items', { returnObjects: true }) as any[];
+  const EXPERIENCE_ITEMS = t('experience.items', { returnObjects: true }) as any[];
+  const PROJECT_ITEMS = t('projects.items', { returnObjects: true }) as any[];
+  const LOGS = t('system.logs', { returnObjects: true }) as string[];
 
   useEffect(() => {
     const interval = setInterval(() => setIsAlt(prev => !prev), 4000);
@@ -240,7 +138,7 @@ function App() {
   }, [selectedExp, selectedProject]);
 
   return (
-    <div className="min-h-screen font-mono selection:bg-brand/30 relative overflow-x-hidden">
+    <div className={`min-h-screen ${langClass} selection:bg-brand/30 relative overflow-x-hidden`}>
       <AnimatePresence>
         {isLoading && (
           <LoadingScreen key="loader" onFinished={() => setIsLoading(false)} />
@@ -251,16 +149,17 @@ function App() {
         <div className="scanline" />
         <Navbar />
 
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
           <ThemeToggle />
+          <LanguageToggle />
         </div>
 
         {/* Background Decorative Elements */}
         <div className="fixed top-3/4 left-4 z-20 text-[10px] text-brand/25 -rotate-90 origin-top-left pointer-events-none select-none uppercase tracking-[0.3em] font-black">
-          COORD_X: 37.3784 // COORD_Y: 127.1143 // SYS_STATUS: NOMINAL
+          {t('system.coord_x')} // {t('system.coord_y')} // {t('system.status')}
         </div>
         <div className="fixed top-1/2 right-4 z-20 rotate-90 origin-top-right pointer-events-none select-none text-[10px] text-brand/25 uppercase tracking-[0.3em] font-black">
-          NODE_ID: YHW-032 // LINK: ENCRYPTED // 0x7E7
+          {t('system.node_id')} // {t('system.link')} // 0x7E7
         </div>
 
         {/* Edge Accents */}
@@ -273,7 +172,7 @@ function App() {
             <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-12">
               <div className="md:col-span-12 lg:col-span-8 flex flex-col justify-center space-y-8">
                 <div className="inline-block border border-brand/40 px-3 py-1 text-[10px] text-brand w-fit animate-pulse tracking-widest font-black uppercase">
-                  SYSTEM_ACCESS: GRANTED
+                  {t('system.access_granted')}
                 </div>
                 {/* Cinematic Hero Title */}
                 <div className="relative min-h-[1.2em] flex items-baseline">
@@ -294,7 +193,7 @@ function App() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                         >
-                          <DecipherText text="ELLO" />
+                          <DecipherText text={t('hero.hello')} />
                           <span className="inline-block w-[0.1em]" />
                         </motion.span>
                       ) : (
@@ -307,7 +206,7 @@ function App() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                         >
-                          <DecipherText text="EE" />
+                          <DecipherText text={t('hero.ee')} />
                           <span className="inline-block w-[0.1em]" />
                         </motion.span>
                       )}
@@ -326,7 +225,7 @@ function App() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           className="px-[0.05em] origin-left whitespace-nowrap"
                         >
-                          <DecipherText text="ORLD" delay={0.15} />
+                          <DecipherText text={t('hero.world')} delay={0.15} />
                         </motion.span>
                       ) : (
                         <motion.span
@@ -338,14 +237,14 @@ function App() {
                           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           className="px-[0.05em] origin-left flex items-baseline whitespace-nowrap"
                         >
-                          <DecipherText text="OOK" delay={0.15} />
+                          <DecipherText text={t('hero.wook')} delay={0.15} />
                           <motion.span
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 0.6, x: 0 }}
                             transition={{ delay: 0.3 }}
                             className="text-[0.2em] md:text-[0.18em] font-bold ml-2 tracking-normal normal-case whitespace-nowrap opacity-60 hidden md:inline-block border-l border-brand/20 pl-2 py-1 leading-none self-center"
                           >
-                            <DecipherText text="s GITHUB.IO" delay={0.4} />
+                            <DecipherText text={t('hero.github_label')} delay={0.4} />
                           </motion.span>
                         </motion.span>
                       )}
@@ -353,21 +252,21 @@ function App() {
                   </motion.h1>
                 </div>
                 <div className="flex gap-3 font-mono text-[10px] tracking-[0.2em] text-brand/60 uppercase">
-                  <span>// CORE_VALUE: HUMAN_INTERFACE</span>
-                  <span className="animate-pulse">● ONLINE</span>
+                  <span>// {t('hero.core_value')}</span>
+                  <span className="animate-pulse">● {t('hero.online')}</span>
                 </div>
 
                 <p className="text-xl md:text-2xl text-slate-400 font-bold max-w-2xl border-l-2 border-brand pl-6 py-1 leading-relaxed">
-                  <span className="">User first, decorate later.</span>
+                  <span className="">{t('hero.main_desc')}</span>
                   <br />
                   <span className="text-sm md:text-base opacity-60 font-medium">
-                    I architect digital experiences where functionality dictates the form.
+                    {t('hero.sub_desc')}
                   </span>
                 </p>
               </div>
 
               <div className="md:col-span-12 lg:col-span-4 flex flex-col justify-end space-y-4 text-[10px] font-bold text-text-muted">
-                {SYSTEM_LOGS.map((log, i) => (
+                {LOGS.map((log, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <span className="text-brand opacity-60">[{i}]</span>
                     <span>{log}</span>
@@ -381,13 +280,13 @@ function App() {
           <section id="education" className="py-40 bg-section-alt">
             <div className="max-w-6xl mx-auto px-6">
               <div className="flex items-center gap-4 mb-16">
-                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Education</h2>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">{t('education.title')}</h2>
                 <div className="h-px grow bg-border" />
-                <span className="text-xs text-brand opacity-60 font-black">TYPE: DATA_HISTORY</span>
+                <span className="text-xs text-brand opacity-60 font-black">{t('education.type')}</span>
               </div>
 
               <div className="grid gap-1 grid-cols-1 md:grid-cols-2">
-                {EDUCATION.map((edu, idx) => (
+                {EDUCATION_ITEMS.map((edu, idx) => (
                   <div key={idx} className="tech-panel">
                     <div className="flex justify-between items-start mb-6">
                       <div>
@@ -408,13 +307,13 @@ function App() {
           <section id="experience" className="py-40">
             <div className="max-w-6xl mx-auto px-6">
               <div className="flex items-center gap-4 mb-16">
-                <span className="text-xs text-brand opacity-60 font-black">LOG_LEVEL: SENIOR</span>
+                <span className="text-xs text-brand opacity-60 font-black">{t('experience.log_level')}</span>
                 <div className="h-px grow bg-border" />
-                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Experience</h2>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">{t('experience.title')}</h2>
               </div>
 
               <div className="space-y-1">
-                {EXPERIENCE.map((exp, idx) => (
+                {EXPERIENCE_ITEMS.map((exp, idx) => (
                   <div
                     key={idx}
                     onClick={() => setSelectedExp(exp)}
@@ -422,28 +321,28 @@ function App() {
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                       <div className="lg:col-span-3">
-                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">PERIOD_STAMP</span>
+                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">{t('experience.period_stamp')}</span>
                         <span className="text-xl font-black">{exp.period}</span>
                         <div className="mt-2 text-[10px] font-black text-brand-contrast bg-brand px-2 py-0.5 w-fit uppercase tracking-tighter">
                           {exp.type}
                         </div>
                       </div>
                       <div className="lg:col-span-4">
-                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">ORGANIZATION</span>
+                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">{t('experience.organization')}</span>
                         <h3 className="text-2xl font-black leading-none uppercase text-brand/90">{exp.company}</h3>
                       </div>
                       <div className="lg:col-span-5">
-                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">STATUS_ROLE</span>
+                        <span className="text-[10px] text-brand block mb-1 font-black uppercase tracking-widest">{t('experience.status_role')}</span>
                         <p className="text-lg font-black text-text-main mb-2 tracking-tight">{exp.role}</p>
                         <div className="flex flex-wrap gap-2 mb-3">
-                          {exp.tech.slice(0, 3).map((t, i) => (
+                          {exp.tech.slice(0, 3).map((t: string, i: number) => (
                             <span key={i} className="text-[9px] font-black bg-brand/5 border border-brand/20 px-2 py-0.5 text-brand uppercase tracking-widest">
                               {t}
                             </span>
                           ))}
                           {exp.tech.length > 3 && (
                             <span className="text-[9px] font-black text-text-muted px-2 py-0.5 uppercase tracking-widest">
-                              + {exp.tech.length - 3} MORE
+                              + {exp.tech.length - 3} {t('experience.more')}
                             </span>
                           )}
                         </div>
@@ -477,7 +376,7 @@ function App() {
                   <div className="p-8 pb-0 flex justify-between items-start">
                     <div>
                       <span className="text-xs font-black text-brand tracking-[0.2em] uppercase mb-2 block">
-                        RESOURCE_DETAILS // {selectedExp.period}
+                        {t('experience.resource_details')} // {selectedExp.period}
                       </span>
                       <h2 className="text-4xl font-black uppercase tracking-tighter text-brand">
                         {selectedExp.company}
@@ -500,10 +399,10 @@ function App() {
                   <div className="p-8 space-y-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
                     <div>
                       <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Code size={14} /> TECHNICAL_STACK
+                        <Code size={14} /> {t('experience.technical_stack')}
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        {selectedExp.tech.map((t, i) => (
+                        {selectedExp.tech.map((t: string, i: number) => (
                           <span key={i} className="text-[10px] font-black bg-brand/5 border border-brand/20 px-3 py-1 text-brand uppercase tracking-widest">
                             {t}
                           </span>
@@ -512,7 +411,7 @@ function App() {
                     </div>
 
                     <div>
-                      <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">DETAILED_MANIFEST</h4>
+                      <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">{t('experience.detailed_manifest')}</h4>
                       <div className="border-l-2 border-brand/20 pl-6 py-2">
                         <p className="text-text-main font-bold leading-relaxed whitespace-pre-line">
                           {selectedExp.fullDesc}
@@ -523,7 +422,7 @@ function App() {
 
                   <div className="p-6 bg-brand/5 border-t border-brand/10 flex justify-after">
                     <span className="text-[10px] font-black opacity-30 tracking-[0.3em] uppercase">
-                      SYS_ACCESS_STABLE // HASH: {Math.random().toString(36).substring(7).toUpperCase()}
+                      {t('experience.sys_access_stable')} // HASH: {Math.random().toString(36).substring(7).toUpperCase()}
                     </span>
                   </div>
                 </motion.div>
@@ -535,13 +434,13 @@ function App() {
           <section id="projects" className="py-40 bg-section-alt">
             <div className="max-w-7xl mx-auto px-6">
               <div className="flex items-center gap-4 mb-16">
-                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Projects</h2>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase">{t('projects.title')}</h2>
                 <div className="h-px grow bg-border" />
-                <span className="text-xs text-brand opacity-60 font-black">MODE: DEPLOYED</span>
+                <span className="text-xs text-brand opacity-60 font-black">{t('projects.mode')}</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-                {PROJECTS.map((project, idx) => (
+                {PROJECT_ITEMS.map((project, idx) => (
                   <div
                     key={idx}
                     onClick={() => setSelectedProject(project)}
@@ -556,22 +455,22 @@ function App() {
 
                     <div className="space-y-1 mb-6 border-l-2 border-brand/20 pl-4 py-1">
                       <div className="flex items-center gap-2 text-[10px] font-bold">
-                        <span className="text-brand uppercase tracking-tighter">ORG:</span>
+                        <span className="text-brand uppercase tracking-tighter">{t('projects.org')}:</span>
                         <span className="text-text-main">{project.organization}</span>
                         {project.team && (
                           <>
                             <span className="opacity-20">//</span>
-                            <span className="text-brand uppercase tracking-tighter">UNIT:</span>
+                            <span className="text-brand uppercase tracking-tighter">{t('projects.unit')}:</span>
                             <span className="text-text-main">{project.team}</span>
                           </>
                         )}
                       </div>
                       <div className="flex items-center gap-2 text-[10px] font-bold">
-                        <span className="text-brand uppercase tracking-tighter">ROLE:</span>
+                        <span className="text-brand uppercase tracking-tighter">{t('projects.role')}:</span>
                         <span className="text-text-main">{project.role}</span>
                       </div>
                       <div className="flex items-center gap-2 text-[10px] font-bold">
-                        <span className="text-brand uppercase tracking-tighter">TIME:</span>
+                        <span className="text-brand uppercase tracking-tighter">{t('projects.time')}:</span>
                         <span className="text-text-main">{project.period}</span>
                       </div>
                     </div>
@@ -580,7 +479,7 @@ function App() {
                       {project.desc}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.split(', ').slice(0, 3).map((t, i) => (
+                      {project.tech.split(', ').slice(0, 3).map((t: string, i: number) => (
                         <span key={i} className="text-[9px] font-black tracking-widest text-brand border border-brand/20 px-2 py-0.5 uppercase">
                           {t}
                         </span>
@@ -631,30 +530,30 @@ function App() {
 
                     <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">ORGANIZATION</span>
+                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.organization')}</span>
                         <p className="font-black text-lg">{selectedProject.organization}</p>
                       </div>
                       {selectedProject.team && (
                         <div>
-                          <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">TEAM_UNIT</span>
+                          <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.unit')}</span>
                           <p className="font-black text-lg">{selectedProject.team}</p>
                         </div>
                       )}
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">ASSIGNED_ROLE</span>
+                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.role')}</span>
                         <p className="font-black text-lg">{selectedProject.role}</p>
                       </div>
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">SERVICE_PERIOD</span>
+                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.time')}</span>
                         <p className="font-black text-lg">{selectedProject.period}</p>
                       </div>
                     </div>
 
                     {selectedProject.links.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-4 block">HANDSHAKE_LINKS</span>
+                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-4 block">{t('projects.handshake_links')}</span>
                         <div className="flex flex-col gap-2">
-                          {selectedProject.links.map((link, i) => (
+                          {selectedProject.links.map((link: any, i: number) => (
                             <a
                               key={i}
                               href={link.url}
@@ -685,7 +584,7 @@ function App() {
 
                     <div className="space-y-8 md:overflow-y-auto scrollbar-thin scrollbar-thumb-brand/20 md:custom-scrollbar md:pr-4 md:flex-1 md:min-h-0">
                       <div>
-                        <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">PROJECT_MANIFEST</h4>
+                        <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4">{t('projects.project_manifest')}</h4>
                         <p className="text-text-main font-bold leading-relaxed whitespace-pre-line text-lg">
                           {selectedProject.fullDesc}
                         </p>
@@ -693,10 +592,10 @@ function App() {
 
                       <div>
                         <h4 className="text-xs font-black text-brand uppercase tracking-widest mb-4 flex items-center gap-2">
-                          <Code size={14} /> SYSTEM_DEPENDENCIES
+                          <Code size={14} /> {t('projects.system_dependencies')}
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {selectedProject.tech.split(', ').map((t, i) => (
+                          {selectedProject.tech.split(', ').map((t: string, i: number) => (
                             <span key={i} className="text-[10px] font-black bg-brand/5 border border-brand/20 px-3 py-1 text-brand uppercase tracking-widest">
                               {t}
                             </span>
@@ -707,7 +606,7 @@ function App() {
 
                     <div className="mt-auto pt-8 border-t border-brand/10">
                       <span className="text-[10px] font-black opacity-30 tracking-[0.3em] uppercase">
-                        MANIFEST_VERIFIED // ST_CODE: {selectedProject.id.split('-')[1]}
+                        {t('projects.manifest_verified')} // ST_CODE: {selectedProject.id.split('-')[1]}
                       </span>
                     </div>
                   </div>
@@ -725,11 +624,11 @@ function App() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-24 border-b border-brand/20 pb-12">
                 <div className="space-y-4">
-                  <span className="text-xs text-brand font-black tracking-[0.4em] uppercase opacity-60">TECHNICAL_BLUEPRINT // v4.2.0</span>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase" data-text="STACK">Stack</h2>
+                  <span className="text-xs text-brand font-black tracking-[0.4em] uppercase opacity-60">{t('stack.version')}</span>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase" data-text="STACK">{t('stack.title')}</h2>
                 </div>
                 <div className="hidden md:block text-right">
-                  <span className="text-[10px] font-black tracking-widest text-brand opacity-40 uppercase">MODULE_CONFIGURATION</span>
+                  <span className="text-[10px] font-black tracking-widest text-brand opacity-40 uppercase">{t('stack.config')}</span>
                   <div className="flex gap-2 mt-2 justify-end">
                     {[1, 2, 3].map(i => <div key={i} className="w-12 h-1 bg-brand/20" />)}
                   </div>
@@ -755,8 +654,8 @@ function App() {
                           {cat.icon}
                         </div>
                         <div className="flex-1">
-                          <span className="text-[11px] font-black text-brand tracking-widest block uppercase mb-1 opacity-60">{cat.label}</span>
-                          <h3 className="text-2xl font-black tracking-tighter uppercase leading-none">{cat.category}</h3>
+                          <span className="text-[11px] font-black text-brand tracking-widest block uppercase mb-1 opacity-60">{t(`stack.labels.${cat.label}`)}</span>
+                          <h3 className="text-2xl font-black tracking-tighter uppercase leading-none">{t(`stack.categories.${cat.category}`)}</h3>
                         </div>
                       </div>
 
@@ -780,7 +679,7 @@ function App() {
                         <div className="flex gap-1.5">
                           {[1, 2, 3].map(i => <div key={i} className="w-1 h-3 bg-brand" />)}
                         </div>
-                        <span className="text-[8px] font-black tracking-widest uppercase">SYSCFG_0{idx}::STABLE</span>
+                        <span className="text-[8px] font-black tracking-widest uppercase">SYSCFG_0{idx}::{t('stack.stable')}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -792,13 +691,13 @@ function App() {
           {/* Contact Section */}
           <section id="contact" className="py-40 relative">
             <div className="absolute inset-0 opacity-5 pointer-events-none overflow-hidden flex items-center justify-center text-[20vw] font-black text-brand select-none uppercase">
-              CONNECT
+              {t('contact.bg')}
             </div>
             <div className="max-w-4xl mx-auto px-6 text-center space-y-12 relative z-10">
               <div className="space-y-4">
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase glitch" data-text="TRANSMIT">Transmit</h2>
+                <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase glitch" data-text="TRANSMIT">{t('contact.title')}</h2>
                 <p className="text-lg text-text-muted max-w-xl mx-auto leading-relaxed font-black uppercase tracking-widest">
-                  Initiate handshake for secure coordination or architectural discussion.
+                  {t('contact.desc')}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto items-stretch">
@@ -874,16 +773,19 @@ function App() {
                           className="absolute bottom-full left-0 right-0 mb-4 z-50 bg-panel backdrop-blur-2xl border border-brand/40 shadow-2xl p-2"
                         >
                           <div className="flex flex-col gap-1">
-                            <a
-                              href="mailto:hw010603@gmail.com"
+                            <button
+                              onClick={() => {
+                                window.location.href = 'mailto:yhw6440@gmail.com';
+                                setShowMailMenu(false);
+                              }}
                               className="flex items-center gap-3 p-3 hover:bg-brand/10 text-text transition-colors text-xs font-black uppercase tracking-widest group"
                             >
                               <ExternalLink size={14} className="text-brand opacity-60 group-hover:opacity-100" />
-                              Launch Mail Client
-                            </a>
+                              {t('contact.send_mail')}
+                            </button>
                             <button
                               onClick={() => {
-                                navigator.clipboard.writeText("hw010603@gmail.com");
+                                navigator.clipboard.writeText('yhw6440@gmail.com');
                                 setCopied(true);
                                 setTimeout(() => setCopied(false), 2000);
                                 setTimeout(() => setShowMailMenu(false), 1000);
@@ -895,7 +797,7 @@ function App() {
                               ) : (
                                 <Copy size={14} className="text-brand opacity-60 group-hover:opacity-100" />
                               )}
-                              {copied ? "Address Copied!" : "Copy to Clipboard"}
+                              {copied ? t('contact.copied') : t('contact.copy_address')}
                             </button>
                           </div>
                           {/* Technical Accent Decorative Line */}

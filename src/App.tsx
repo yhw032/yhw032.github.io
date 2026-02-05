@@ -527,23 +527,23 @@ function App() {
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-1 gap-6 font-mono">
+                    <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.organization')}</span>
+                        <span className="text-[10px] font-mono font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.organization')}</span>
                         <p className="font-black text-base">{selectedProject.organization}</p>
                       </div>
                       {selectedProject.team && (
                         <div>
-                          <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.unit')}</span>
+                          <span className="text-[10px] font-mono font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.unit')}</span>
                           <p className="font-black text-base">{selectedProject.team}</p>
                         </div>
                       )}
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.role')}</span>
+                        <span className="text-[10px] font-mono font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.role')}</span>
                         <p className="font-black text-base">{selectedProject.role}</p>
                       </div>
                       <div>
-                        <span className="text-[10px] font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.time')}</span>
+                        <span className="text-[10px] font-mono font-black text-brand uppercase tracking-widest mb-1 block">{t('projects.time')}</span>
                         <p className="font-black text-base">{selectedProject.period}</p>
                       </div>
                     </div>

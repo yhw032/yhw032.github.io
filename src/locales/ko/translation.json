@@ -247,9 +247,9 @@
     "stable": "STABLE"
   },
   "contact": {
-    "title": "전송",
+    "title": "연락처",
     "bg": "CONNECT",
-    "desc": "새로운 프로토콜 준비 완료. 협업 채널이 열려 있습니다.",
+    "desc": "READY FOR NEW PROTOCOLS. COLLABORATION CHANNELS OPEN.",
     "send_mail": "메일 보내기",
     "copy_address": "주소 복사",
     "copied": "복사됨!",
